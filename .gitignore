@@ -1,0 +1,33 @@
+# R + RStudio
+.Rhistory
+.RData
+.Rapp.history
+.Ruserdata
+*.Rproj.user
+*.RDataTmp
+
+# macOS
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Sensitive: anything that could carry credentials
+.env
+.env.local
+*.pgpass
+.Renviron
+
+# Logs + temp
+*.log
+*.tmp
+*.bak
+
+# OS thumbnails / metadata
+Thumbs.db
+ehthumbs.db
+
+# The 18 BM tax-statement PDFs are public records — kept tracked.
+# The TCEQ + Comptroller cached HTML/JSON are public — kept tracked.
+# The R output CSVs are derived data — kept tracked for reproducibility.
