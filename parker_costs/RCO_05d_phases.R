@@ -37,9 +37,9 @@ WE_HH      <- 15902
 PA_HH      <- 46404
 
 tb <- fread("parker_taxable_base.csv")
-WE_BASE  <- tb[code == "WE",  total_taxable_base]
-PA_BASE  <- tb[code == "PAR", total_taxable_base]
-ES1_BASE <- tb[code == "ES1", total_taxable_base]
+WE_BASE  <- as.numeric(tb[code == "WE",  total_taxable_base])
+PA_BASE  <- as.numeric(tb[code == "PAR", total_taxable_base])
+ES1_BASE <- as.numeric(tb[code == "ES1", total_taxable_base])
 
 TYP_ISD_TAXABLE   <- 181000
 TYP_OTHER_TAXABLE <- 281000

@@ -33,9 +33,9 @@ PA_HH <- 46404
 
 # ── Taxable bases for rate-backfill calc ─────────────────────────────────────
 tb <- fread("parker_taxable_base.csv")
-WE_BASE  <- tb[code == "WE",  total_taxable_base]   # $8.51B  Weatherford ISD
-PA_BASE  <- tb[code == "PAR", total_taxable_base]   # $30.54B Parker County (≈ COL,HOS,LTR)
-ES1_BASE <- tb[code == "ES1", total_taxable_base]   # $13.40B ESD-1
+WE_BASE  <- as.numeric(tb[code == "WE",  total_taxable_base])   # $8.51B  Weatherford ISD
+PA_BASE  <- as.numeric(tb[code == "PAR", total_taxable_base])   # $30.54B Parker County (≈ COL,HOS,LTR)
+ES1_BASE <- as.numeric(tb[code == "ES1", total_taxable_base])   # $13.40B ESD-1
 
 # Typical Weatherford ISD homestead — derived from avg WE tax $1,871 at rate 1.0342%
 # implies ~$181k ISD-taxable value (post $100k homestead exemption)
