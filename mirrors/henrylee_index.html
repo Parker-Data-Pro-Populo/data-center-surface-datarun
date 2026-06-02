@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parker County Data — Pro Populo</title>
-  <meta name="description" content="Citizen-research repository on the Black Mountain Power LLC data-center project and the Fort Worth Power Core LLC statewide gas-plant network. Every number traces to a public record.">
+  <title>Parker County Data — Pro Populo · Texas Crossroads</title>
+  <meta name="description" content="Citizen-research repository on the Black Mountain Power LLC data-center project. Sourced methodology · reproducible code · every number traces to a public record.">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Parker Data Pro Populo">
+  <meta property="og:site_name" content="henrylee.vote · Parker Data Pro Populo">
   <meta property="og:title" content="Parker County Data — Pro Populo">
-  <meta property="og:description" content="Citizen research on the Black Mountain Power LLC data-center project at FM 730 + Pearson Ranch Rd. $47,199 per Weatherford family under standard abatement. Every number traces to a public record.">
+  <meta property="og:description" content="Citizen research on the Black Mountain Power LLC data-center project at FM 730 + Pearson Ranch Rd. $47,199 per Weatherford family under standard abatement.">
   <meta property="og:image" content="https://parker-data-pro-populo.github.io/data-center-surface-datarun/og_card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://parker-data-pro-populo.github.io/data-center-surface-datarun/">
+  <meta property="og:url" content="https://henrylee.vote/parker">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Parker County Data — Pro Populo">
-  <meta name="twitter:description" content="Citizen research on the Black Mountain data-center project at FM 730 + Pearson Ranch Rd. $47,199 per Weatherford family under standard abatement.">
+  <meta name="twitter:description" content="Citizen research on the Black Mountain data-center project. Every number traces to a public record.">
   <meta name="twitter:image" content="https://parker-data-pro-populo.github.io/data-center-surface-datarun/og_card.png">
   <style>
     :root {
@@ -29,6 +29,11 @@
                  font-size: 17px; line-height: 1.5; }
     a { color: var(--water); }
     .wrap { max-width: 1040px; margin: 0 auto; padding: 3em 1.5em; }
+    .crossroads-bar {
+      font-size: 0.85em; color: var(--muted); padding-bottom: 1em;
+      border-bottom: 1px solid var(--border); margin-bottom: 2em;
+    }
+    .crossroads-bar a { border-bottom: none; }
     header { border-left: 0.4em solid var(--peer); padding: 0.4em 0 0.6em 1.2em; margin-bottom: 1.5em; }
     h1 { font-size: 2.1em; font-weight: 800; line-height: 1.12; margin: 0; letter-spacing: -0.01em; }
     .sub { font-size: 1.15em; color: var(--muted); margin-top: 0.5em; }
@@ -50,14 +55,13 @@
     .card a.btn:hover { background: var(--water); }
     .card.deck a.btn { background: var(--peer); }
     .card.deck a.btn:hover { background: #7f1313; }
+    .card.contact a.btn { background: var(--land); }
     section { margin: 2.5em 0; }
     section h2 { font-size: 1.35em; color: var(--title); margin: 0 0 0.7em; }
     ul.fact-list { padding: 0; list-style: none; }
     ul.fact-list li { padding: 0.45em 0 0.45em 1.2em; position: relative; border-bottom: 1px solid var(--border); }
     ul.fact-list li:last-child { border-bottom: none; }
-    ul.fact-list li::before {
-      content: "•"; position: absolute; left: 0; color: var(--peer); font-weight: 700;
-    }
+    ul.fact-list li::before { content: "•"; position: absolute; left: 0; color: var(--peer); font-weight: 700; }
     ul.fact-list strong { color: var(--title); }
     .meta { font-size: 0.85em; color: var(--muted); font-style: italic; padding-top: 2em;
             border-top: 1px solid var(--border); margin-top: 3em; }
@@ -72,9 +76,15 @@
 <body>
 <div class="wrap">
 
+<div class="crossroads-bar">
+  <a href="/">henrylee.vote</a>
+  &nbsp;&middot;&nbsp;
+  Parker County Data — Pro Populo
+</div>
+
 <header>
   <h1>Parker County Data <span style="color: var(--muted); font-weight: 500">— Pro Populo</span></h1>
-  <div class="sub">Citizen-research repository on the Black Mountain Power LLC data-center project, the Fort Worth Power Core LLC statewide gas-plant network, and what they will cost Parker County families.</div>
+  <div class="sub">Citizen-research on the Black Mountain Power LLC data-center project, the Fort Worth Power Core LLC statewide gas-plant network, and what they will cost Parker families. Mirrored on henrylee.vote; sourced and reproducible.</div>
 </header>
 
 <section>
@@ -84,33 +94,26 @@
     <div class="card primary">
       <h2>Interactive map</h2>
       <p>Toggle layers, click any Texas county for source-cited detail. Three switchable basemaps, six toggleable data layers, zoom + pan.</p>
-      <a class="btn" href="viz/tx_rco_interactive.html">Open the map →</a>
+      <a class="btn" href="https://parker-data-pro-populo.github.io/data-center-surface-datarun/viz/tx_rco_interactive.html">Open the map →</a>
     </div>
 
     <div class="card deck">
       <h2>Presentation deck</h2>
       <p>16-slide HTML deck for the June 8, 2026 Parker County Commissioners Court. Keyboard navigation, print-to-PDF supported.</p>
-      <a class="btn" href="slides/">Open the slides →</a>
+      <a class="btn" href="https://parker-data-pro-populo.github.io/data-center-surface-datarun/slides/">Open the slides →</a>
     </div>
 
     <div class="card repo">
       <h2>Full source code &amp; data</h2>
-      <p>R scripts, CSVs, PDFs, SQL — every number in the deck traces to a file in this repository.</p>
+      <p>R scripts, CSVs, PDFs, SQL — every number on this page traces to a file in the repository.</p>
       <a class="btn" href="https://github.com/Parker-Data-Pro-Populo/data-center-surface-datarun">Browse on GitHub →</a>
     </div>
 
     <div class="card contact">
       <h2>Position statement</h2>
       <p>What this project is for, what it is against, and an honest disclosure about the use of AI in citizen research.</p>
-      <a class="btn" href="STATEMENT.html" style="background: var(--land)">Read the statement →</a>
+      <a class="btn" href="https://parker-data-pro-populo.github.io/data-center-surface-datarun/STATEMENT.html">Read the statement →</a>
     </div>
-
-    <div class="card contact" style="border-left-color: var(--muted); grid-column: 1 / -1">
-      <h2>Contact</h2>
-      <p>Questions, corrections, additions? Email below. The bar is: every claim has to survive hostile reading.</p>
-      <p style="margin-top: 0.4em"><strong style="color: var(--title)">Henry Lee Butler</strong> · <a href="mailto:henry.lee@henrylee.vote">henry.lee@henrylee.vote</a></p>
-    </div>
-
   </div>
 </section>
 
@@ -126,20 +129,14 @@
 </section>
 
 <section>
-  <h2>How to verify</h2>
-  <ul class="fact-list">
-    <li><strong>Parker CAD records</strong> — 18 corrected appraisal notices archived in <code>black_mountain_holdings/</code></li>
-    <li><strong>TCEQ Central Registry</strong> — raw HTML pulls archived in <code>tceq_sos_cache/</code></li>
-    <li><strong>Texas Comptroller</strong> — franchise-tax registry JSON for all Black Mountain entities + Fort Worth Power Core LLC, archived in <code>tceq_sos_cache/</code></li>
-    <li><strong>TWDB Nov-2019 GCD shapefile</strong> — full spatial join archived in <code>county_gcd_join_2019.csv</code></li>
-    <li><strong>May-26-2026 commissioners court transcript</strong> — structured at <code>parker_costs/court_records/</code></li>
-    <li><strong>Methodology</strong> — every R script that produces a chart or number is in the repo and runnable</li>
-  </ul>
+  <h2>About this mirror</h2>
+  <p>This page is a mirror of <a href="https://parker-data-pro-populo.github.io/data-center-surface-datarun/">parker-data-pro-populo.github.io/data-center-surface-datarun/</a>, hosted on henrylee.vote for local discoverability. All interactive content (map, slides, repository) is served from the canonical GitHub Pages site. The mirror reflects the state of the project as of June 2, 2026.</p>
 </section>
 
 <div class="meta">
   Sources current as of June 2, 2026. Built on public records — Parker County Appraisal District, TCEQ Central Registry, TX Comptroller franchise-tax registry, TWDB groundwater conservation district shapefile, USDA NASS Census of Agriculture 2022, and the Parker County Commissioners Court session transcript of May 26, 2026.<br><br>
-  This is a citizen-research project. No commercial affiliation. Every number is verifiable through the cited source.
+  Citizen-research project · No commercial affiliation · Every number is verifiable through the cited source.<br>
+  Contact: <a href="mailto:henry.lee@henrylee.vote">henry.lee@henrylee.vote</a>
 </div>
 
 </div>

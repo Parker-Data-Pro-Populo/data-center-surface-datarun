@@ -1,0 +1,113 @@
+Parker Data — Pro Populo
+Citizen-research repository on the Black Mountain Power LLC data-center
+project, the Fort Worth Power Core LLC statewide network, and related
+public-record investigations affecting Parker County, Texas.
+
+LICENSE
+=======
+
+This repository contains three categories of material, licensed
+separately as follows.
+
+
+1. SOURCE CODE
+--------------
+
+All R scripts (*.R), shell scripts (*.sh), and HTML/CSS/JavaScript
+implementation files authored as part of this project are released under
+the MIT License.
+
+Copyright (c) 2026 Henry Lee Butler
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+The MIT-licensed file set includes the third-party reveal.js library
+(slides/lib/reveal.{js,css} and slides/lib/theme.css), which is itself
+distributed under the MIT License by its original authors. See
+https://github.com/hakimel/reveal.js for canonical source and original
+copyright notice.
+
+
+2. WRITING, ANALYSIS, AND DERIVED DATA
+--------------------------------------
+
+The narrative writing, charts, maps, presentation slides, position
+statement, methodology documentation, and all derived data products
+(*.md, *.html non-implementation content, *.png chart renderings, *.csv
+files in rco_overlay_local/output/, parker_costs/, and similar derivative
+analytical outputs) are licensed under:
+
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+You are free to:
+  * Share — copy and redistribute the material in any medium or format.
+  * Adapt — remix, transform, and build upon the material for any
+    purpose, even commercially.
+
+Under the following terms:
+  * Attribution — You must give appropriate credit, provide a link to
+    the license, and indicate if changes were made. You may do so in
+    any reasonable manner, but not in any way that suggests the
+    licensor endorses you or your use.
+
+Suggested attribution form:
+    "Parker Data Pro Populo (2026), 'data-center-surface-datarun'.
+     https://github.com/Parker-Data-Pro-Populo/data-center-surface-datarun"
+
+
+3. UNDERLYING PUBLIC-RECORD SOURCES
+-----------------------------------
+
+The repository archives or references material drawn from the following
+public-record sources. These sources are NOT owned, licensed, or
+sublicensable by the maintainers of this repository. Use of the source
+material itself is governed by the policies of the originating
+agencies and copyright holders, and is generally permitted as public
+record under Texas and federal law:
+
+  * Parker County Appraisal District — appraisal notices, certified roll,
+    parcel data (Texas Tax Code, Texas Public Information Act).
+  * Texas Commission on Environmental Quality — Central Registry, air
+    permit registrations, regulated-entity records (statutorily public).
+  * Texas Comptroller of Public Accounts — franchise tax registry,
+    Chapter 312 / 313 / JETI registries (statutorily public).
+  * Texas Water Development Board — groundwater conservation district
+    shapefile (public domain).
+  * USDA National Agricultural Statistics Service — Census of
+    Agriculture 2022 (public domain US Government work).
+  * Parker County Commissioners Court — public meeting recordings and
+    transcripts (Texas Open Meetings Act).
+
+The CC-BY-4.0 license above applies to our compilation, analysis, and
+presentation of this material. The original source records remain
+subject to their own terms.
+
+
+4. NO WARRANTY, NO LEGAL ADVICE
+-------------------------------
+
+Nothing in this repository constitutes legal advice. Cost-model figures,
+siting-risk indices, and other derived numerical estimates are
+methodologically documented and reproducible but reflect modeling
+assumptions stated in the published source code. Errors, where
+identified, will be corrected with a dated revision note.
+
+For questions, corrections, or licensing clarifications:
+henry.lee@henrylee.vote
