@@ -29,7 +29,10 @@ BM_LAND_VAL     <- sum(bm_live$ty_land, na.rm = TRUE)
 BM_TAX_LIVE     <- sum(bm_live$tax_at_ly_rate, na.rm = TRUE)
 BM_TAX_AG       <- sum(unique(bm[notice_type == "ORIGINAL"], by = "prop_id")$tax_at_ly_rate, na.rm = TRUE)
 BM_NEW_LAND_REV <- BM_TAX_LIVE - BM_TAX_AG
-BM_ROLLBACK     <- BM_NEW_LAND_REV * 5
+# Ag rollback: HB 1743 (eff. 2019-09-01) cut the recapture period from 5 to 3
+# years and interest from 7% to 5%. Principal = 3 yrs of the market-vs-ag tax
+# difference; 5% statutory interest applies on top (not included in principal).
+BM_ROLLBACK     <- BM_NEW_LAND_REV * 3
 
 # ── Rates ──────────────────────────────────────────────────────────────────
 # Non-school LOCAL jurisdictions (Chapter 312, NO backfill):
@@ -94,7 +97,7 @@ text(5, 3.9, "land tax NOW flowing — to schools,", cex = 0.85, col = "#333333"
 text(5, 3.4, "county, hospital, college, ESD-1", cex = 0.85, col = "#333333")
 text(5, 2.1, sprintf("Plus $%s", format(round(BM_ROLLBACK), big.mark = ",")),
      cex = 0.92, font = 2, col = "#a50f15")
-text(5, 1.6, "one-time rollback tax (TX §23.55)", cex = 0.8, col = "#a50f15")
+text(5, 1.6, "rollback tax — 3 yrs + 5% int. (TX §23.55, 2019)", cex = 0.75, col = "#a50f15")
 
 # COLUMN 2 — PHASE 1
 draw_phase <- function(p, label, sub, color) {
@@ -172,6 +175,8 @@ dev.off()
 cat("Wrote scenario_BM_phases_C.png\n")
 
 # ── Print the numbers for the briefing ─────────────────────────────────────
+cat(sprintf("\nAg rollback (3 yrs, principal, +5%% interest on top): $%s\n",
+            format(round(BM_ROLLBACK), big.mark = ",")))
 cat("\n══ CORRECTED — NET LOCAL loss (county + special districts, 80% abatement) ══\n")
 cat(sprintf("Phase 1   : $%.2fM/yr  |  $%.1fM over 10yr  |  $%.0f/yr per county HH  ($%s/10yr)\n",
             p1$net_local_yr/1e6, p1$net_local_life/1e6, p1$net_local_hh,
