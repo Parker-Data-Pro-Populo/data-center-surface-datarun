@@ -119,7 +119,7 @@ cat(sprintf("  Tax after  ag-strip (CORRECTED notices): $%s/yr  ← happening NO
             format(round(BM_TAX_LIVE), big.mark=",")))
 cat(sprintf("  New annual revenue from land conversion: $%s/yr\n",
             format(round(BM_TAX_LIVE - BM_TAX_AG), big.mark=",")))
-cat(sprintf("  Rollback tax owed (5 yrs back-tax for ag loss, TX §23.55): ~$%s one-time\n\n",
+cat(sprintf("  Rollback tax owed (3 yrs + 5%% interest for ag loss, TX §23.55, HB 1743): ~$%s one-time\n\n",
             format(round((BM_TAX_LIVE - BM_TAX_AG) * 5), big.mark=",")))
 
 cat("PROJECTED IMPROVEMENTS\n")

@@ -1,9 +1,12 @@
 #!/usr/bin/env Rscript
 # Build OG social-share card. 1200x630 (Facebook/Twitter recommended).
 # Self-contained — no dependencies beyond base R.
-# Headline figure = NET LOCAL revenue lost at full buildout (county + special
-# districts, Chapter 312, no state backfill). The school-district share is a
-# separate state-backfilled JETI matter and is NOT counted as a local loss.
+# Headline revised 2026-09-01. The card previously led with $364M — the net
+# local revenue foregone at an inferred 1 GW buildout under an assumed 80%
+# Chapter 312 abatement. Parker County has since adopted Resolution 26-25
+# (no abatements for data centers) and no capacity has ever been filed for the
+# site, so a single figure cannot carry the card. The headline is now the
+# finding itself: nothing has been filed, and the site publishes scenarios.
 
 png_path <- "/Users/clbutler/Desktop/social_manifold/data_center_surface_datarun/og_card.png"
 png(png_path, width = 1200, height = 630, res = 100)
@@ -28,11 +31,11 @@ text(60, 380, "Citizen research on the Black Mountain Power LLC",
 text(60, 340, "data-center project at FM 730 + Pearson Ranch Rd.",
      adj = c(0, 1), cex = 1.9, col = "#1f2937")
 
-# Big number — net local revenue lost at full buildout
-text(60, 285, "$364M", adj = c(0, 1), cex = 4.8, font = 2, col = "#b91c1c")
-text(60, 175, "in local revenue lost to a full data-center buildout —",
+# Headline finding — what is actually on the record
+text(60, 285, "No number filed.", adj = c(0, 1), cex = 3.9, font = 2, col = "#b91c1c")
+text(60, 175, "No capacity, no county permit application, no queue position —",
      adj = c(0, 1), cex = 1.45, col = "#475569")
-text(60, 147, "money the state does not replace",
+text(60, 147, "so we publish the scenarios, and label the evidence behind each.",
      adj = c(0, 1), cex = 1.45, col = "#475569")
 
 # Caption

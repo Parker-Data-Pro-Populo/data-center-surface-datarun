@@ -1,4 +1,13 @@
 #!/usr/bin/env Rscript
+# ══════════════════════════════════════════════════════════════════════════
+# DEPRECATED 2026-09-01 — DO NOT USE FOR PUBLICATION.
+# Superseded by ../profile_2026_09/RCO_05g_scenarios.R.
+# This script assumed an 80% Chapter 312 abatement as the base case. Parker
+# County Commissioners Court Resolution 26-25 declines abatements for data
+# centers, so that assumption is no longer the baseline. The ag-rollback
+# constant below has also been corrected from 5 years to 3 (HB 1743, 2019);
+# any figure produced by an earlier run of this file is retracted.
+# ══════════════════════════════════════════════════════════════════════════
 # RCO_05d_phases.R — Phase 1 (75 MW, TCEQ-permitted) vs Buildout (1 GW, implied)
 # side-by-side comparison. Anchored to:
 #   - Parker CAD May-15-2026 corrected notices (18 parcels, 2,075 acres)
@@ -25,7 +34,7 @@ BM_TAX_LIVE <- sum(bm_live$tax_at_ly_rate, na.rm = TRUE)
 BM_TAX_AG   <- sum(unique(bm[notice_type == "ORIGINAL"],
                            by = "prop_id")$tax_at_ly_rate, na.rm = TRUE)
 BM_NEW_LAND_REV <- BM_TAX_LIVE - BM_TAX_AG
-BM_ROLLBACK     <- BM_NEW_LAND_REV * 5
+BM_ROLLBACK     <- BM_NEW_LAND_REV * 3    # TX §23.55: 3 yrs + 5% interest (HB 1743, 2019)
 
 # ── Tax rates + taxable bases ─────────────────────────────────────────────
 RATES <- c(isd = 0.010342, county = 0.002459, ltr = 0.000533,
@@ -154,7 +163,7 @@ text(5, 2.2, sprintf("Plus $%s",
      cex = 0.92, font = 2, col = "#a50f15")
 text(5, 1.7, "one-time rollback tax owed",
      cex = 0.82, col = "#a50f15")
-text(5, 1.2, "(TX §23.55, 5 years back-tax)",
+text(5, 1.2, "(TX §23.55 — 3 yrs + 5% interest, HB 1743)",
      cex = 0.78, col = "#666666")
 
 # ── COLUMN 2 — PHASE 1 (already permitted) ────────────────────────────────
