@@ -459,7 +459,19 @@ non-operation, abandonment, bankruptcy or lapse of the air registration, with 18
 complete; recorded as a covenant running with the land, transfer conditioned on replacement
 security, released only after county-verified restoration and two growing seasons of vegetation.
 
-- Nothing has been committed or pushed.
+
+### Editorial position on correspondence — added 2026-09-01
+Several asks involve writing to agencies outside county government (TCEQ, PUCT, ERCOT, UTGCD).
+**All such communication is the county attorney's to draft, review and send.** This project supplies
+example language and citations as a starting point only, offers no final draft, and assumes no
+responsibility for what is ultimately sent. Ask 1 accordingly now reads "direct the county attorney
+to inquire" rather than "a letter is drafted and ready for the clerk"; asks 3, 4, 5 and 7 and the
+section 11 open-items list carry the same routing. The standing note is on the ask slide.
+`parker_costs/court_records/TCEQ_inquiry_draft.md` remains untracked and is an example, not a
+deliverable.
+
+- Nothing has been pushed to the public repository. Committed on `revision-2026-09`; `main` and the
+  `briefing-2026-06` tag hold the June briefing unchanged.
 
 ## Sources
 State/regulatory: Gibson Dunn (Batch Zero); Texas Tribune 2026-06-30, 2026-08-03, 2026-08-14;
