@@ -622,6 +622,45 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ── Print / PDF ───────────────────────────────────────────────────────
+       Added 2026-09-01. The deck advertised print-to-PDF but carried no print
+       stylesheet, so pagination fell wherever it landed — slides split, cards
+       broken mid-block, colours dropped. */
+    @media print {
+      @page { size: letter portrait; margin: 0.55in 0.5in 0.62in; }
+
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      html, body { background: #fff !important; font-size: 10.5pt; }
+      .topbar, #lightbox { display: none !important; }
+      figure::after { display: none !important; }   /* the "enlarge" badge is a screen affordance */
+
+      section.slide {
+        max-width: none;
+        padding: 0 0 0.3in;
+        border-bottom: 0;
+        break-before: page;
+      }
+      section.slide#top { break-before: auto; }
+
+      h1 { font-size: 21pt; }
+      h2 { font-size: 15.5pt; }
+      h3, h3.subhead { font-size: 11.5pt; }
+      h1, h2, h3, .eyebrow { break-after: avoid; }
+
+      figure, .card, .ask, .quote, .strip, table, .tbl, .timeline { break-inside: avoid; }
+      figure img { max-width: 100%; max-height: 5.6in; width: auto; height: auto;
+                   display: block; margin: 0 auto; }
+
+      /* Paired columns are too narrow on paper — stack them. */
+      .twocol, .twocol.bias-left, .twocol.bias-right, .threecol { display: block; }
+      .twocol > div, .threecol > div { margin-bottom: 0.9rem; }
+
+      .contents { columns: 2; column-gap: 1.4rem; }
+      .contents a { color: inherit; }
+      a { color: inherit; text-decoration: none; }
+      p.source, .smallcaption { font-size: 8.6pt; }
+    }
   </style>
 </head>
 
@@ -645,8 +684,10 @@
       </div>
       <div class="cover-meta">
         <strong>Henry Lee Butler</strong><br>
-        Parker County Commissioners Court &middot; June 9, 2026 &middot; 9:00&nbsp;AM<br>
-        <em>Standalone data-center session</em>
+        Prepared for the Parker County Commissioners Court &middot; standalone data-center session, June 9, 2026<br>
+        <strong style="color:var(--pal-peer)">Revised September 1, 2026 &mdash; DRAFT FOR REVIEW, not published</strong><br>
+        <em>Cost, water, Chapter 391, mitigation and the ask rebuilt. The June briefing is preserved unchanged
+        at the <code>briefing-2026-06</code> tag.</em>
       </div>
       <p class="smallcaption" style="margin-top:1.4rem">
         Every number in this briefing traces to a public record. Sources are listed in each section and gathered in
