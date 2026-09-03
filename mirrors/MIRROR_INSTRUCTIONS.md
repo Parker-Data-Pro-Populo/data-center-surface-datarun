@@ -1,89 +1,45 @@
 # Mirror deployment instructions
 
-Two deployment options per site. Pick **one** per domain.
+**Revised 2026-09-02.** There is now one approach, not two: both domains point at the
+read-only GitHub Pages site. The self-contained landing pages that used to live here
+(`henrylee_index.html`, `texascrossroads_index.html`) have been removed — they were a second
+copy of the content, and a second copy is a second thing to correct when a figure changes.
+They are recoverable from git history if ever needed.
 
----
+## Canonical URLs
 
-## Option A — Simple passthrough redirect
+| What | URL |
+|---|---|
+| The briefing (current) | `https://parker-data-pro-populo.github.io/data-center-surface-datarun/` |
+| The briefing deck | `https://parker-data-pro-populo.github.io/data-center-surface-datarun/slides/` |
+| **The June 2026 version, archived** | `https://parker-data-pro-populo.github.io/data-center-surface-datarun/archive/2026-06/` |
+| Interactive map | `https://parker-data-pro-populo.github.io/data-center-surface-datarun/viz/tx_rco_interactive.html` |
+| Position statement | `https://parker-data-pro-populo.github.io/data-center-surface-datarun/STATEMENT.html` |
 
-Best when you want traffic to flow straight through to the GitHub Pages canonical
-URL. The redirect file carries the correct OG/Twitter Card metadata so link
-previews still render the card before the browser follows the redirect.
+The archive URL is stable and safe to link from either domain. The page carries a banner
+explaining that it is superseded and links back to the current briefing, so a visitor who
+arrives there from an old post or a citation is never left thinking it is current.
 
-| Domain | File to deploy | Suggested path on server |
-|--------|---------------|--------------------------|
-| texascrossroads.net | `texascrossroads_redirect.html` | Upload as `/parker/index.html` (so the URL is `texascrossroads.net/parker`) |
-| henrylee.vote | `henrylee_redirect.html` | Upload as `/parker/index.html` (so the URL is `henrylee.vote/parker`) |
+## Deploy
 
-How it works:
-- Both `<meta http-equiv="refresh">` and a JS `window.location.replace()` fire
-  immediately — the visitor never sees the redirect page.
-- OG metadata points to the correct domain so social crawlers (Facebook,
-  Twitter/X, Bluesky, iMessage, Slack) pick up the image and description *from
-  the mirror URL* before the redirect fires. The share preview will show
-  `texascrossroads.net/parker` or `henrylee.vote/parker` as the source URL.
+| Domain | File | Path on server |
+|---|---|---|
+| henrylee.vote | `henrylee_redirect.html` | `/parker/index.html` → `henrylee.vote/parker` |
+| texascrossroads.net | `texascrossroads_redirect.html` | `/parker/index.html` → `texascrossroads.net/parker` |
 
----
+Both files fire a `<meta http-equiv="refresh">` and a JS `window.location.replace()`
+immediately, so a visitor never sees the redirect page. Each carries OG/Twitter metadata
+pointing at its own domain, so a link preview on Facebook, Bluesky, iMessage or Slack renders
+the card and shows `henrylee.vote/parker` or `texascrossroads.net/parker` as the source before
+the redirect fires.
 
-## Option B — Self-contained landing page (mirror)
+## When a figure changes
 
-Best when you want content to actually live on the domain and not bounce away.
-The page replicates the index cards and key facts, and all interactive content
-buttons (map, slides, GitHub) point to the canonical github.io URLs.
+Nothing to redeploy. The domains hold redirects only, so correcting the briefing corrects what
+both domains serve. That is the point of the change: in June the same numbers lived in four
+places, and when the cost figures were corrected, the mirrors had to be found and corrected too.
 
-| Domain | File to deploy | Suggested path on server |
-|--------|---------------|--------------------------|
-| texascrossroads.net | `texascrossroads_index.html` | Upload as `/parker/index.html` |
-| henrylee.vote | `henrylee_index.html` | Upload as `/parker/index.html` |
-
-What the page includes:
-- Branded breadcrumb bar ("Texas Crossroads · Parker Data Pro Populo")
-- Four resource cards linking to the canonical GitHub Pages URLs
-- "What's in scope" fact list (all five headline findings)
-- "About this mirror" section with canonical URL attribution
-- Full OG + Twitter Card metadata pointing to the mirror URL (og_card.png is
-  fetched from the canonical GitHub Pages URL)
-
----
-
-## WordPress / cPanel quick-deploy
-
-If either site runs WordPress or a shared host with cPanel:
-
-**Option A (redirect):**
-1. SSH/SFTP into the host.
-2. Create directory `public_html/parker/` if it doesn't exist.
-3. Upload the redirect file as `public_html/parker/index.html`.
-4. No plugin or .htaccess changes needed.
-
-**Option B (landing page):**
-Same steps — upload the full landing-page file as `public_html/parker/index.html`.
-No PHP, no database, no dependencies. It's a static HTML file.
-
----
-
-## Social links to use after deploying
-
-Use whichever domain you post from:
-
-```
-https://texascrossroads.net/parker
-https://henrylee.vote/parker
-```
-
-Both will produce the correct rich-link preview card because the OG metadata
-is embedded in each file before any redirect fires.
-
----
-
-## Keeping mirrors current
-
-The mirror pages reference the GitHub Pages project by URL — they don't embed
-its content. When the canonical project is updated and pushed to GitHub Pages,
-the mirrors automatically point to the new content without any action on your
-part (because all four resource buttons are hard-linked to github.io).
-
-The only time you'd need to re-upload a mirror file is if you change the
-headline figures or project description and want the link-preview card to
-reflect the update. In that case, edit the relevant `og:description` and
-`og:title` tags in the mirror file and re-upload.
+The one thing to check after a correction: the OG `description` in both redirect files, since
+that text is copied rather than linked. It currently reads "Revised September 2026: the county
+has refused abatements, the state has frozen data-center interconnections, and no capacity has
+been filed."
