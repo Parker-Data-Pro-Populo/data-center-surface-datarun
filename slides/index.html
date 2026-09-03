@@ -622,6 +622,45 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ── Print / PDF ───────────────────────────────────────────────────────
+       Added 2026-09-01. The deck advertised print-to-PDF but carried no print
+       stylesheet, so pagination fell wherever it landed — slides split, cards
+       broken mid-block, colours dropped. */
+    @media print {
+      @page { size: letter portrait; margin: 0.55in 0.5in 0.62in; }
+
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      html, body { background: #fff !important; font-size: 10.5pt; }
+      .topbar, #lightbox { display: none !important; }
+      figure::after { display: none !important; }   /* the "enlarge" badge is a screen affordance */
+
+      section.slide {
+        max-width: none;
+        padding: 0 0 0.3in;
+        border-bottom: 0;
+        break-before: page;
+      }
+      section.slide#top { break-before: auto; }
+
+      h1 { font-size: 21pt; }
+      h2 { font-size: 15.5pt; }
+      h3, h3.subhead { font-size: 11.5pt; }
+      h1, h2, h3, .eyebrow { break-after: avoid; }
+
+      figure, .card, .ask, .quote, .strip, table, .tbl, .timeline { break-inside: avoid; }
+      figure img { max-width: 100%; max-height: 5.6in; width: auto; height: auto;
+                   display: block; margin: 0 auto; }
+
+      /* Paired columns are too narrow on paper — stack them. */
+      .twocol, .twocol.bias-left, .twocol.bias-right, .threecol { display: block; }
+      .twocol > div, .threecol > div { margin-bottom: 0.9rem; }
+
+      .contents { columns: 2; column-gap: 1.4rem; }
+      .contents a { color: inherit; }
+      a { color: inherit; text-decoration: none; }
+      p.source, .smallcaption { font-size: 8.6pt; }
+    }
   </style>
 </head>
 
@@ -645,8 +684,10 @@
       </div>
       <div class="cover-meta">
         <strong>Henry Lee Butler</strong><br>
-        Parker County Commissioners Court &middot; June 9, 2026 &middot; 9:00&nbsp;AM<br>
-        <em>Standalone data-center session</em>
+        Prepared for the Parker County Commissioners Court &middot; standalone data-center session, June 9, 2026<br>
+        <strong style="color:var(--pal-peer)">Revised September 1, 2026 &mdash; DRAFT FOR REVIEW, not published</strong><br>
+        <em>Cost, water, Chapter 391, mitigation and the ask rebuilt. The June briefing is preserved unchanged
+        at the <code>briefing-2026-06</code> tag.</em>
       </div>
       <p class="smallcaption" style="margin-top:1.4rem">
         Every number in this briefing traces to a public record. Sources are listed in each section and gathered in
@@ -666,12 +707,14 @@
           <a href="#owner"><span class="n">03</span>The owner</a>
           <a href="#statewide"><span class="n">04</span>The statewide pattern</a>
           <a href="#permit"><span class="n">05</span>The TCEQ permit</a>
-          <a href="#cost-phase1"><span class="n">06</span>Cost to the community — Phase 1</a>
-          <a href="#cost-buildout"><span class="n">07</span>Cost to the community — Buildout</a>
+          <a href="#cost-phase1"><span class="n">06</span>Phase 1 — what is actually permitted</a>
+          <a href="#cost-buildout"><span class="n">07</span>Buildout — the scenario grid</a>
+          <a href="#water-ceiling"><span class="n">07b</span>Water — the whole system</a>
           <a href="#ceilings"><span class="n">08</span>Why it's worse than it sounds</a>
           <a href="#why-parker"><span class="n">09</span>Why Black Mountain chose Parker</a>
-          <a href="#other-counties"><span class="n">10</span>What other counties are doing</a>
-          <a href="#court-can-do"><span class="n">11</span>What this court can do</a>
+          <a href="#other-counties"><span class="n">10</span>What other communities tried</a>
+          <a href="#chapter-391"><span class="n">10b</span>The 391 question</a>
+          <a href="#court-can-do"><span class="n">11</span>What this court has done, and what is open</a>
           <a href="#the-ask"><span class="n">12</span>The ask</a>
           <a href="#interactive-map"><span class="n">13</span>See for yourself</a>
           <a href="#sources"><span class="n">14</span>Sources &amp; methodology</a>
@@ -840,23 +883,45 @@
       </div>
 
       <div class="strip">
-        <div class="label">Documented political activity — and the permit timeline</div>
-        <div class="twocol" style="gap:1.2rem">
+        <div class="label">Documented political activity — every line filed with the Texas Ethics Commission</div>
+        <table class="tbl" style="font-size:0.92rem">
+          <tbody>
+            <tr><td><strong>$500,000</strong></td><td>Black Mountain Power LLC &rarr; <em>Texans for Greg Abbott</em></td>
+              <td>Nov 14, 2025</td><td class="smallcaption">TEC report #101029815</td></tr>
+            <tr><td><strong>$500,000</strong></td><td>Bennett &rarr; <em>Texans for Greg Abbott</em></td>
+              <td>Mar 6, 2026</td><td class="smallcaption">TEC report #101055764</td></tr>
+            <tr><td>$36,750</td><td>Bennett &rarr; <em>Texans for Greg Abbott</em></td>
+              <td>Oct 23, 2024</td><td class="smallcaption">TEC report #100987892</td></tr>
+            <tr><td><strong>$10,000</strong></td><td>Bennett &rarr; <em>Sen. Phil King</em> (SD-10, Parker County)</td>
+              <td>Sep 30, 2025</td><td class="smallcaption">TEC report #101026985</td></tr>
+            <tr><td><strong>$10,000</strong></td><td>Bennett &rarr; <em>Sen. Phil King</em></td>
+              <td>Sep 26, 2024</td><td class="smallcaption">TEC report #100970637</td></tr>
+            <tr><td>$46,000</td><td>Bennett &rarr; eight Fort Worth council members and the Mayor</td>
+              <td>2025</td><td class="smallcaption">during zoning approvals</td></tr>
+          </tbody>
+        </table>
+        <div class="twocol" style="gap:1.2rem; margin-top:0.9rem">
           <div style="font-size:0.95rem">
-            <strong>$500,000</strong> — Black Mountain Power LLC &rarr; <em>Texans for Greg Abbott</em><br>
-            <span class="smallcaption">Nov 14, 2025 · Texas Ethics Commission Report #101029815</span><br><br>
-            <strong>$46,000</strong> — Rhett Bennett &rarr; eight Fort Worth City Council members &amp; the Mayor<br>
-            <span class="smallcaption">2025, during zoning approvals</span>
+            <strong>$1,036,750 to the Governor's committee</strong> across three gifts, and
+            <strong>$20,000 to Parker County's state senator</strong>. A further <strong>$30,000</strong> went to
+            Rep. Ken King of HD-88 — relevant here only because he chaired the House State Affairs Committee for the
+            interim hearing on data centers (TEC reports #101028141, #101035143, #101058003).
           </div>
           <div style="font-size:0.95rem; color:var(--pal-muted)">
-            TCEQ permit #179422 approved in <strong style="color:var(--pal-title)">~2.5 weeks</strong>, with no public
-            process.<br><br>
-            <strong style="color:var(--pal-title)">Nov 14, 2025</strong> donation &nbsp;&rarr;&nbsp; permit approved
-            <strong style="color:var(--pal-title)">May 2026</strong>.<br>
-            <span class="smallcaption">The sequence is a matter of public record. The conclusion is yours to
-              draw.</span>
+            TCEQ registration #179422 was approved in <strong style="color:var(--pal-title)">~2.5 weeks</strong>, with
+            no public process.<br>
+            <span class="smallcaption"><strong>What we are not claiming.</strong> Nothing here shows that any
+              contribution bought any decision, and we have no evidence of one. Note also what cuts against that
+              reading: on August 3, 2026 the same Governor froze data-center interconnections statewide pending an
+              audit. These are filings, dates and amounts — the public record of who is spending what, and nothing
+              more.</span>
           </div>
         </div>
+        <p class="smallcaption" style="margin-top:0.7rem"><strong>A name note, so the arithmetic can be checked.</strong>
+          The CEO appears in TEC filings as both "Rhett Bennett" and "John Bennett," each at Fort Worth addresses with
+          Black Mountain employers and Founder/CEO or Chairman occupations. A 2018 filing under the full name
+          <em>John Rhett Miles Bennett</em> (Black Mountain Oil &amp; Gas, CEO) ties the two forms together. Totals
+          combine them; every line above remains separately citable.</p>
       </div>
 
       <p class="source">Sources: TX Comptroller franchise-tax registry · TCEQ Central Registry · Texas Ethics Commission
@@ -911,11 +976,14 @@
         <div class="label">From Fort Worth to Parker</div>
         <div class="timeline">
           <div class="step"><span class="yr">2024</span><br>Tarrant permits filed. $10B Fort Worth campus planned.</div>
-          <div class="step"><span class="yr">2025</span><br>$46K to FW City Council. $500K to Abbott (Nov).</div>
+          <div class="step"><span class="yr">2025</span><br>$46K to FW City Council. $500K to Abbott (Nov). $10K to Sen. Phil King (Sep).</div>
           <div class="step"><span class="yr" style="color:var(--pal-peer)">Fort Worth pushes back</span><br>"Resources
             &amp; land use concerns" — campus stalled.</div>
+          <div class="step"><span class="yr">2026</span><br>A second $500K to Abbott (Mar). $10K to Rep. Ken King (Jan),
+            $10K more (Jun).</div>
           <div class="step"><span class="yr" style="color:var(--pal-peer)">Parker County</span><br>Rural. No recorded
-            local contributions. 2.5-week permit. <em>(FW vote still pending: Jun 23)</em></div>
+            local contributions. 2.5-week registration. <em>(Fort Worth approved the 187-acre site plan 7&ndash;4 on
+            Aug 25, 2026.)</em></div>
         </div>
       </div>
 
@@ -927,7 +995,7 @@
     <section class="slide" id="permit">
       <div class="eyebrow">05 · The TCEQ permit</div>
       <h2>A power plant approved in 2.5 weeks, with no public process</h2>
-      <h3 class="subhead">75 megawatts · 5 gas turbines · 24/7 continuous operation</h3>
+      <h3 class="subhead">5 gas turbines · 24/7 continuous operation · capacity stated in testimony as ~75 MW, not in the permit record</h3>
 
       <p class="lead">Texas has a slow permit path with public hearings, and a fast path with none. This plant took the
         fast path — approved in two and a half weeks, with no chance for anyone to comment or object.</p>
@@ -993,96 +1061,206 @@
       <p class="source">Sources: TCEQ Central Registry · May-26-2026 commissioners court transcript.</p>
     </section>
 
-    <!-- ═══════════════ 7 · COST PHASE 1 ═══════════════ -->
+    <!-- ═══════════════ 7 · PHASE 1 ═══════════════ -->
     <section class="slide" id="cost-phase1">
-      <div class="eyebrow">06 · Cost to the community — Phase 1</div>
-      <h2>Phase 1: about $30 million the county simply never collects</h2>
-      <h3 class="subhead">If the county grants an 80% Chapter 312 abatement on what's already permitted</h3>
+      <div class="eyebrow">06 · Phase 1 — what is actually permitted</div>
+      <h2>Phase 1: five turbines, and a number that is not in the permit</h2>
+      <h3 class="subhead">Corrected September 2026 — the county has since refused abatements, and the scale was never filed</h3>
 
-      <p class="lead">A Chapter 312 abatement excuses the company from county and special-district taxes on most of its
-        value — so that money is never collected. Unlike the school-district portion, <strong>none of it is replaced by
-        the state</strong>: it is revenue for county roads, the sheriff, EMS, the hospital district, and the junior
-        college that simply never arrives.</p>
+      <p class="lead">TCEQ Air New Source Registration <strong>179422</strong> (RN112172408, "Parker Plant,"
+        501 Pearson Ranch Road) authorizes <strong>five natural-gas turbines</strong> described as backup and bridge
+        power for a data center. That is the permitted fact. The <strong>75-megawatt</strong> figure attached to it —
+        including by this site in June — comes from <strong>testimony</strong>, not from the permit: it was stated in
+        open court on May 26, 2026 that "there has been [a] 75 megawatt power plant that's been approved for this
+        particular site… approved for continuous operations, which means it can run 24 hours a day."</p>
 
-      <div class="twocol bias-left">
-        <div>
-          <figure>
-            <img src="img/scenario_BM_phases_B.png" alt="Chart: land-tax now flowing, and the net local revenue lost under a Phase 1 and Buildout abatement">
-            <figcaption>The land tax now flows (left). The county-controlled abatement is what's lost — net of any
-              state backfill. Phase 1 and Buildout shown.</figcaption>
-          </figure>
-        </div>
-        <div>
-          <p><strong>Phase 1</strong> is the 75-MW gas plant plus accompanying data-center capacity TCEQ has already
-            permitted.</p>
-          <p>If Parker County and its special districts grant the <strong>standard 80% Chapter 312 abatement</strong>,
-            the <strong>net local loss</strong> — with no state backfill — is:</p>
-          <div class="card peer">
-            <div class="big">$3.0M/yr</div>
-            <div class="smallcaption">county + hospital + junior college + ESD + lateral road, every year</div>
-            <hr>
-            <div class="big">$30 million</div>
-            <div class="smallcaption">net local revenue lost over the 10-year abatement (≈ $654 per county household)</div>
-          </div>
-          <p class="smallcaption" style="margin-top:0.8rem"><strong>The school district's share is separate.</strong>
-            Weatherford ISD can't grant a Chapter 312 abatement; its piece is a state-program (Chapter 313/JETI) matter
-            and is largely backfilled by the state — so it is <em>not</em> a local loss, and not this court's decision.
-            We don't count it here.</p>
-        </div>
+      <p class="lead">We went looking for the filed number and did not find one. TCEQ's Central Registry entry for
+        Registration 179422 shows status, holder and address — <strong>no capacity</strong> — and the agency's Central
+        File Room returns no public documents for it. The registration's terms require a records request to TCEQ Air
+        Permitting. Until that comes back, this row stays labelled <strong>TESTIMONY</strong>.</p>
+
+      <div class="quote">The same operator's Bowie County plant — filed February 2026 under the same standard permit
+        for electric generating units — discloses roughly <strong>446 megawatts</strong>.
+        <span class="attrib">Fort Worth Power Core LLC, RN112380654 · reported June 29, 2026</span>
       </div>
 
-      <p class="source">Net local = county + hospital + junior college + ESD + lateral-road foregone revenue (Chapter
-        312, no state backfill). Model: parker_costs/RCO_05f_local_net.R. See <a href="#sources">Sources &amp;
-          methodology</a>.</p>
-    </section>
+      <p>That cuts both ways, and it is why we no longer treat 75 MW as a ceiling. These registrations <em>do</em>
+        state capacity; this operator's other one states a number nearly six times larger. What Parker's says is a
+        question with an answer on file somewhere — it simply has not been published.</p>
 
-    <!-- ═══════════════ 8 · COST BUILDOUT ═══════════════ -->
-    <section class="slide" id="cost-buildout">
-      <div class="eyebrow">07 · Cost to the community — Buildout</div>
-      <h2>Buildout: about $364 million in local revenue, gone</h2>
-      <h3 class="subhead">What the 2,075-acre footprint actually supports</h3>
-
-      <p class="lead">The 75 MW is just the start — the City Manager testified it "would not be enough." The land can
-        hold a campus more than ten times that size. At full buildout, the county and its special districts would give
-        up roughly <strong>$364 million</strong> over ten years — about $784 per county household per year — with no
-        state backfill, and, as the next panel shows, no jobs or product to show for it.</p>
+      <p>The turbine class is unsettled in the same way. Our own June working file describes the registration as five
+        <strong>Siemens SGT-400</strong> units at 15 MW each — which is where 75 MW comes from — but that description
+        carries no citation and we have not been able to confirm it. Meanwhile three of this operator's Tarrant County
+        registrations are named for a larger machine, the <strong>SGT-800</strong>, rated roughly 45 to 62 MW. Five of
+        those would be 250 MW or more. <strong>We assert neither.</strong> We are pointing at the gap: the difference
+        between 15 MW units and 50 MW units is a factor of three in every number downstream, and it is settled by one
+        document that has not been published.</p>
 
       <div class="twocol bias-left">
         <div>
           <figure>
-            <img src="img/scenario_BM_phases_C.png" alt="Chart: net local revenue lost, Phase 1 versus Buildout, at 50/80/100% abatement">
-            <figcaption>Net local revenue lost (county + special districts, no state backfill) — Phase 1 vs. Buildout,
-              at 50 / 80 / 100% abatement.</figcaption>
+            <img src="img/who_collects_B.png" alt="Chart: annual property tax collected by each jurisdiction, unabated, at three scales">
+            <figcaption>If it is built and not abated, this is who collects. Note the axes differ — the three
+              scenarios are orders of magnitude apart.</figcaption>
           </figure>
         </div>
         <div>
-          <p>2,075 acres can host a 1-gigawatt campus comfortably. At <strong>1 GW</strong> with an 80% Chapter 312
-            abatement, the <strong>net local loss</strong> is:</p>
-          <div class="card peer">
-            <div class="big">$36.4M/yr</div>
-            <div class="smallcaption">county + hospital + junior college + ESD + lateral road, every year</div>
+          <p><strong>What changed:</strong> in June this section said Phase 1 would cost the county about
+            $30 million, assuming an 80% Chapter 312 abatement. On June 30, 2026 the Commissioners Court stated on
+            the record that <strong>Resolution 26-25</strong> forecloses that assumption — <em>"there will be zero tax
+            abatements for data centers in Parker County."</em> The baseline therefore inverts.</p>
+          <div class="card" style="border-left:0.4rem solid var(--pal-land);">
+            <div class="big">$3.8M/yr</div>
+            <div class="smallcaption">collected — county + hospital + junior college + ESD-1 + lateral road, unabated</div>
             <hr>
-            <div class="big">$364 million</div>
-            <div class="smallcaption">net local revenue lost over the 10-year abatement (≈ $784 per county household per year)</div>
+            <div class="big">$38 million</div>
+            <div class="smallcaption">over ten years, at the Phase 1 improvement value of roughly $750 million</div>
           </div>
-          <p class="smallcaption" style="margin-top:0.8rem">The school-district share (separate, state-backfilled) is
-            not counted here. Counting only what the county controls and the state does <em>not</em> replace, this is
-            the real local number.</p>
+          <p class="smallcaption" style="margin-top:0.8rem"><strong>Plus Weatherford ISD: $6.6M/yr, $66M over ten
+            years — and a county abatement cannot touch it.</strong> Tax Code §312.002 bars school districts from
+            Chapter 312 entirely, and JETI (Gov't Code Ch. 403) <em>excludes data centers</em> by NAICS code. The one
+            JETI-eligible asset on the site is the generation — the turbines, not the data hall.</p>
+          <p class="smallcaption"><strong>The land is already producing.</strong> After the May 15, 2026 corrected
+            notices, the 18 parcels pay about <strong>$943,000/yr</strong> against roughly $6,500 under the
+            agricultural valuation, plus about <strong>$2.8 million</strong> of rollback tax — three years plus 5%
+            interest, Tax Code §23.55 as amended by HB 1743 (2019).</p>
         </div>
       </div>
 
       <div class="card" style="border-left:0.4rem solid var(--pal-power); max-width:var(--measure); margin-top:1.2rem;">
-        <strong style="color:var(--pal-power);">What comes back to residents:</strong> very little. Data centers are
-        among the lowest-employment developments per dollar invested — Texas's own incentive statutes set permanent-job
-        floors as low as <strong>10 to 75 positions</strong> for projects of this scale, and Black Mountain has filed no
-        jobs commitment for Parker. The facility's product — power and computing — is sold to customers elsewhere;
-        residents buy nothing from it. Its 24/7 demand competes for the same <strong>water and grid capacity</strong>
-        the community depends on, which tends to raise local costs, not lower them.
+        <strong style="color:var(--pal-power);">What 75 MW now means at the state level:</strong> SB 6 (2025) defines a
+        <strong>large load as 75 MW or more</strong>. Anything at that scale interconnecting after December 31, 2025
+        must carry equipment allowing ERCOT to curtail it directly during firm load shed, and moves through ERCOT's
+        Batch Zero process — which Governor Abbott's <strong>August 3, 2026</strong> directive froze pending a
+        verification audit of every data center in the queue. This project sits exactly on that threshold.
       </div>
 
-      <p class="source">Net local = county + special-district foregone revenue (Chapter 312, no state backfill). Capex
-        assumption: $8M/MW · 85% taxable · 10-yr term. Job floors: TX Tax Code §151.359 / JETI (Gov't Code Ch. 403).
-        Model: parker_costs/RCO_05f_local_net.R.</p>
+      <p class="source">Sources: TCEQ Central Registry (Reg. 179422 / RN112172408) · Commissioners Court transcripts,
+        May 26 and June 30, 2026 · Tax Code §§312.002, 23.55 · Gov't Code Ch. 403 (JETI) · SB 6 (89R, 2025).
+        Model: profile_2026_09/RCO_05g_scenarios.R.</p>
+    </section>
+
+    <!-- ═══════════════ 8 · BUILDOUT ═══════════════ -->
+    <section class="slide" id="cost-buildout">
+      <div class="eyebrow">07 · Buildout — the scenario grid</div>
+      <h2>Buildout: no one has filed a number, so we publish the grid instead</h2>
+      <h3 class="subhead">Two things are genuinely unknown — the scale, and whether anyone abates it. Both are axes, not assumptions.</h3>
+
+      <p class="lead">In June this site published a single buildout figure — <strong>$364 million</strong> — derived by
+        extrapolating a 1-gigawatt campus from 2,075 acres and applying an 80% abatement. Neither input was ever filed
+        with anyone. That number has not been deleted: it is the cell where "1 GW, acreage-implied" meets "80%
+        Chapter 312" in the grid below. What has changed is that it is no longer presented as the finding. <strong>Each
+        row carries the class of evidence its scale rests on</strong>, and the baseline column is the one the county has
+        actually adopted.</p>
+
+      <figure>
+        <img src="img/scenario_grid_A.png" alt="Grid: ten-year local property tax by scale scenario and abatement level, with evidence class per row">
+        <figcaption>Ten-year local property tax on improvements, by scale and by abatement. Green is collected;
+          red is foregone. Weatherford ISD is shown separately because Chapter 312 cannot reach it.</figcaption>
+      </figure>
+
+      <div class="twocol">
+        <div>
+          <p><strong>The better anchor is the developer's own disclosure.</strong> Black Mountain's Fort Worth project
+            is a <strong>$10 billion</strong>, 187-acre site plan — four buildings, 68 feet tall, 2.2 million square
+            feet — that the Fort Worth City Council approved <strong>7–4 on August 25, 2026</strong>. Scaling Parker
+            scenarios in units of a campus the company has actually described is defensible in a way that scaling from
+            raw acreage is not.</p>
+          <p>Against that yardstick, the June extrapolation turns out to be roughly <em>one</em> Fort Worth-class
+            campus — not an outlandish figure, but an unsourced one.</p>
+        </div>
+        <div>
+          <p><strong>What is not known is itself the finding.</strong> As of today there is <em>no</em> data-center
+            permit application on file with Parker County, <em>no</em> disclosed capacity for the Parker site, and
+            <em>no</em> announced ERCOT queue position. Weatherford has said data centers "remain NOT ALLOWED" inside
+            the city; the site is roughly seven miles northeast of downtown, outside its reach.</p>
+          <p>The state does not have these numbers either — which is why the August 3 directive requires every project
+            in the interconnection queue to file its incentives, power draw, water use, mitigation measures, and
+            ownership. <strong>ERCOT is working to complete that audit by December 10, 2026.</strong> That filing, not
+            an extrapolation, is where a defensible buildout number will come from.</p>
+        </div>
+      </div>
+
+      <div class="card" style="border-left:0.4rem solid var(--pal-power); max-width:var(--measure); margin-top:1.2rem;">
+        <strong style="color:var(--pal-power);">What a county refusal does and does not reach:</strong> Resolution 26-25
+        binds no future court and does not bind the hospital district, the junior college, ESD-1 or the lateral road
+        fund, each of which grants its own Chapter 312 agreement. And it reaches nothing at the state level:
+        Tax Code <strong>§151.359</strong> exempts a qualifying data center from state sales tax on servers, cooling,
+        electrical gear and <em>the electricity itself</em>; <strong>§151.3595</strong> extends that to local sales tax
+        for twenty years at a $500 million investment with 40 jobs and 20 MW of contracted transmission.
+      </div>
+
+      <p class="source">Improvements taxed at 85% of value; 2025 adopted rates; 10-year Chapter 312 term. Evidence
+        classes: PERMIT (filed public record), TESTIMONY (stated on the record by an official), DISCLOSED (announced by
+        the developer for another site), INFERRED (derived from acreage; no filing supports it).
+        Model: profile_2026_09/RCO_05g_scenarios.R · data: profile_2026_09/scenario_table.csv.</p>
+    </section>
+
+    <!-- ═══════════════ 8b · WATER CEILING ═══════════════ -->
+    <section class="slide" id="water-ceiling">
+      <div class="eyebrow">07b · Water — the whole system</div>
+      <h2>Count the whole system, or the water just moves where nobody is looking</h2>
+      <h3 class="subhead">Upper Trinity GCD rules adopted August 27, 2026 — and the water behind the power</h3>
+
+      <p class="lead">Public comment on this project has cited five million gallons a day. That figure is not sourced,
+        and it is not necessary. The Upper Trinity Groundwater Conservation District — Hood, Montague, Parker and
+        Wise — adopted amended rules on <strong>August 27, 2026</strong> that make the water question arithmetic
+        rather than rhetoric.</p>
+
+      <figure>
+        <img src="img/water_ceiling_C.png" alt="Chart: groundwater supply ceiling for 2,075 acres versus cooling demand by capacity and cooling type">
+        <figcaption>Left: what the tract may legally produce, by Trinity thickness. Right: total system demand at
+          75 MW of IT load — cooling makeup water plus the water consumed generating the power. Same axis; the dotted
+          line is the High-Volume Permit threshold.</figcaption>
+      </figure>
+
+      <div class="twocol">
+        <div>
+          <p><strong>Production is capped by acreage.</strong> Under Rule 5.2 the annual allocation is 500 gallons per
+            contiguous controlled acre times the aquifer thickness in feet, floored at 25,000 and capped at 250,000
+            gallons per acre. Across 2,075 acres that is roughly <strong>52 to 519 million gallons a year</strong> —
+            about 0.14 to 1.4 million gallons a day — with the exact figure set by the Trinity thickness at the tract.</p>
+          <p><strong>But cooling is only half the system.</strong> A closed-loop design does not make the water
+            disappear; it moves it upstream to wherever the electricity is generated — and because closed-loop
+            rejection is less efficient, it raises the power draw that carries that water. At ~75 MW of IT load,
+            an evaporative hall consumes about <strong>197 million gallons a year</strong> at the site. A closed-loop
+            hall consumes about <strong>8 million</strong> at the site — but <strong>205 million</strong> once you add
+            the water consumed generating its power on a combined-cycle or grid supply. That is the same number,
+            relocated. Counting only the cooling tower is how a project gets called water-neutral.</p>
+        </div>
+        <div>
+          <p><strong>And it forces the public process the air permit skipped.</strong> Any operating permit of
+            <strong>25 million gallons a year or more</strong> in the Trinity is a High-Volume Permit Application:
+            hydrogeologic investigation, aquifer testing, enhanced notice to nearby landowners, and a contested-case
+            hearing any person in the district may request. Production aggregates across a well system, so a campus
+            cannot be split into small permits to stay under it. Every scenario on this chart clears that threshold.</p>
+          <p><strong>And here the two halves collapse into one.</strong> This project proposes to make its own power
+            <em>on the tract</em>. If it does, the indirect water is local water too — same aquifer, same district,
+            counted against the same allocation. Whether the turbines use <strong>wet NOx control</strong>, which
+            evaporates roughly 0.05 gallons per kWh generated, or dry control, which uses almost none, is therefore a
+            groundwater decision buried inside an air permit that was issued in two and a half weeks with no public
+            process.</p>
+          <p class="smallcaption"><strong>One thing this section does not claim.</strong> The district also raised the
+            minimum tract size for new wells from two acres to five where the Trinity runs 60 feet thick or thinner,
+            effective January 1, 2027. That trigger is on the district's <em>western</em> edge. The Black Mountain
+            tract is northeast of Weatherford. The rule matters to rural landowners and to district-wide tightening —
+            it is not a constraint on this tract, and we will not present it as one.</p>
+        </div>
+      </div>
+
+      <p class="source">Sources: UTGCD proposed rules amendments for the August 27, 2026 hearing — Rule 4.3(h)
+        minimum tract size, Rule 5.2 production allocation, Rules 2.10–2.12 high-volume applications, Rule 2.13
+        aggregation — read together with the district's signed agenda for that date, which carried "possible action on
+        adopting proposed amendments to District Rules" · Commissioners Court resolution of June 9, 2026 · cooling band
+        direct cooling 0.10–0.50 gal/kWh evaporative and 0.005–0.02 gal/kWh closed-loop; generation water 0.05
+        gal/kWh for a gas turbine with wet NOx control, negligible with dry control, and 0.23 gal/kWh for combined
+        cycle with a cooling tower (TWDB, <em>Power Generation Water Use in Texas</em>, cross-checked against Macknick
+        et al., NREL/TP-6A20-50900); PUE 1.15 evaporative and 1.30 closed-loop; × 8,760 hours. Configuration table at
+        <code>profile_2026_09/water_system_configs.csv</code>.
+        <strong>Two verification notes:</strong> as of September 1, 2026 the district's posted rules PDF is still the
+        February 22, 2021 version, so the adopted text is quoted from the proposed amendments; and the site-specific
+        ceiling awaits the Trinity thickness at the tract, which the district's own Tract Size Requirements Map and its
+        newly commissioned local groundwater flow model will settle.</p>
     </section>
 
     <!-- ═══════════════ 9 · CEILINGS ═══════════════ -->
@@ -1169,143 +1347,332 @@
 
     <!-- ═══════════════ 11 · OTHER COUNTIES ═══════════════ -->
     <section class="slide" id="other-counties">
-      <div class="eyebrow">10 · What other counties are doing</div>
-      <h2>Other Texas counties are already fighting this — and paying for it</h2>
-      <h3 class="subhead">And what happened to them is a guide to what works</h3>
+      <div class="eyebrow">10 · What other communities tried</div>
+      <h2>The ledger of what worked, what got reversed, and what got sued</h2>
+      <h3 class="subhead">At least 100 local data-center ordinances have been considered in Texas since July 1, 2025. The outcomes are not random.</h3>
 
-      <p class="lead">Parker isn't first. Neighboring counties tried to slow these projects down — and the state and the
-        developers pushed back hard. Their experience points to where the county actually has power: not land use, but
-        the tax-abatement vote.</p>
+      <p class="lead">The June version of this slide had three examples and a guess. Here is the fuller record, because
+        the pattern in it is the single most useful thing Parker County can learn from: <strong>land-use prohibitions by
+        counties get reversed; conditions, permits and money decisions hold.</strong></p>
 
       <div class="threecol">
         <div class="card peer">
-          <h3 style="color:var(--pal-peer)">Hood County, TX</h3>
-          <p style="font-size:0.92rem">Considered a data-center moratorium in early 2026.</p>
-          <p style="font-size:0.92rem"><strong>State Senator Paul Bettencourt</strong> sent a letter to the Texas
-            Attorney General — explicitly in response to Hood's consideration — alleging counties have no statutory
-            authority. Hood subsequently denied a plat on local planning grounds. Now in litigation.</p>
-          <p style="font-size:0.92rem">Fort Worth Power Core has not pursued Hood, but has a site one county west in
-            Somervell (Glen Rose).</p>
+          <h3 style="color:var(--pal-peer)">Reversed under legal pressure</h3>
+          <p style="font-size:0.92rem"><strong>Hill County</strong> — one-year moratorium on data-center construction in
+            unincorporated areas, May 2026. <strong>Rescinded within weeks</strong> after a developer sued for more than
+            $100 million; replaced with developer requirements.</p>
+          <p style="font-size:0.92rem"><strong>Tom Green County</strong> — abandoned its moratorium plans after watching
+            Hill County.</p>
+          <p style="font-size:0.92rem"><strong>Hood and Hays Counties</strong> — considered moratoriums in February
+            2026; neither adopted one under threat of suit. Hood has instead <strong>denied plats</strong> and is now in
+            litigation over it.</p>
         </div>
-        <div class="card peer">
-          <h3 style="color:var(--pal-peer)">Hill County, TX</h3>
-          <p style="font-size:0.92rem">Went further than Hood: <strong>actually passed</strong> the moratorium. Hired
-            outside counsel.</p>
-          <p style="font-size:0.92rem">Faces the same legal posture from the State — threatened litigation under the
-            Bettencourt position. Also facing litigation from the data-center developer directly.</p>
+        <div class="card water">
+          <h3 style="color:var(--pal-water)">Standing, so far</h3>
+          <p style="font-size:0.92rem"><strong>Austin County</strong> — countywide moratorium on new AI data centers and
+            battery storage, July 2026.</p>
+          <p style="font-size:0.92rem"><strong>El Paso</strong> — 300-foot minimum separation from residential, noise
+            mitigation, special-use permit, July 2026.<br>
+            <strong>Forney</strong> — light-industrial zones only, 1,000-foot residential buffer, April 2026.<br>
+            <strong>Lewisville</strong> — special-use permit plus two mandatory public hearings, June 2026.<br>
+            <strong>Mesquite</strong> — dedicated data-center and BESS framework, July 2026.</p>
+          <p style="font-size:0.92rem">All four are <em>cities</em> exercising zoning authority under Local Government
+            Code Ch. 211 — the tool Parker County does not have.</p>
         </div>
-        <div class="card peer">
-          <h3 style="color:var(--pal-peer)">Other moratoriums (May 2026)</h3>
-          <p style="font-size:0.92rem">City of Harlingen, TX (May 25, 2026)<br>Tulsa OK · Denver CO<br>"Several places
-            in California, Ohio, Wisconsin, North Carolina"
-            <span class="smallcaption">— Sid Miller, TX Ag Commissioner, May 26 testimony</span>
-          </p>
-          <p style="font-size:0.92rem">The pattern is national: cities and counties moving to pause or block data-center
-            siting while state regulations catch up. Texas is at the front edge because of AI buildout pressure.</p>
+        <div class="card fwpc">
+          <h3 style="color:var(--pal-fwpc)">Being tested right now</h3>
+          <p style="font-size:0.92rem"><strong>San Marcos</strong> — first Texas city to define data centers in its
+            zoning code and make them ineligible citywide, June 2026. State Sen. Paul Bettencourt has moved to challenge
+            it under HB 2559 (2025) and HB 2127 (2023); land-use lawyers counter that HB 2559 reaches moratoriums, not
+            zoning changes.</p>
+          <p style="font-size:0.92rem"><strong>Milam County</strong> — resolution urging stricter statewide standards.
+            <strong>Delta County</strong> — Chapter 391 commission by interlocal agreement with two cities and its soil
+            and water conservation district. <strong>Erath–Somervell</strong> and <strong>Hood–Somervell</strong> — 391
+            sub-regional commissions formed.</p>
         </div>
       </div>
 
-      <p style="margin-top:1.2rem"><strong>The key legal fact:</strong> Texas counties operate under the <strong>Dillon
-          Rule</strong> — limited statutory authority, no home-rule. The county <em>cannot</em> regulate land use
-        directly. But the court has full statutory authority over <strong>tax-abatement decisions</strong>.</p>
+      <div class="card" style="border-left:0.4rem solid var(--pal-peer); max-width:var(--measure); margin-top:1.2rem;">
+        <strong style="color:var(--pal-peer);">Why the reversals happen — the mechanism, not the mood:</strong>
+        HB 2127 (2023) added <strong>Civil Practice &amp; Remedies Code Ch. 102A</strong>. Any person — or a
+        <em>trade association</em> representing one — who sustains an injury "actual or threatened" from a county
+        ordinance that violates the preempted codes may sue. Governmental immunity is waived. The claimant recovers
+        attorney's fees on winning; the county recovers fees only if the suit was frivolous. That asymmetry, plus
+        association standing and the sufficiency of a merely threatened injury, is what a $100 million demand letter is
+        built on. <strong>Note what did <em>not</em> happen:</strong> SB 2858 (89R, 2025), which would have added an
+        attorney-general enforcement track and let the comptroller withhold a county's sales-tax funds, <strong>died in
+        House Calendars</strong>. The teeth today are private suits only.
+      </div>
 
-      <p class="source">Sources: May-26-2026 commissioners court transcript · Sid Miller testimony · public moratorium
-        records.</p>
+      <p class="source">Sources: MultiState, "The Local Fight Over Data Centers: A Texas Case Study," Aug 19, 2026 ·
+        Texas Tribune (Hill County, May 12, 2026; San Marcos, June 30, 2026) · Public Citizen, <em>Texas Data Center
+        Policy Guide</em> · Tex. Civ. Prac. &amp; Rem. Code Ch. 102A · SB 2858 (89R) bill history.</p>
+    </section>
+
+    <!-- ═══════════════ 11b · CHAPTER 391 ═══════════════ -->
+    <section class="slide" id="chapter-391">
+      <div class="eyebrow">10b · The 391 question</div>
+      <h2>Chapter 391: a table with chairs at it, and a statute that says the state has to sit down</h2>
+      <h3 class="subhead">What a sub-regional planning commission actually does — and the two routes in front of this court</h3>
+
+      <p class="lead">A Chapter 391 commission is created by nothing more than matching resolutions from the
+        participating counties (§391.003). Its region must fit the planning regions the governor has already delineated
+        (§391.003(b)(2)) — it is not free-form. What it buys is <strong>coordination and visibility</strong>: the power
+        to plan and recommend (§391.004), to receive and comment on state and federal grant and loan applications from
+        governmental units in the region before they are filed (§391.008), and to be the regional entity state agencies
+        consult (§391.0091).</p>
+
+      <div class="twocol">
+        <div>
+          <h3>What it is not</h3>
+          <ul class="bullets" style="font-size:0.95rem">
+            <li><strong>No power to tax</strong> or levy assessments (§391.011) — it runs on member dues and contracts</li>
+            <li><strong>No zoning or regulatory power</strong> over private property, and it does not enlarge the
+              authority any member county already has</li>
+            <li><strong>Advisory only</strong> — a plan has effect in a county only if that county's court adopts it
+              (§391.004(b))</li>
+            <li><strong>Ongoing overhead</strong> — annual independent CPA audit and reporting to the State Auditor
+              (§391.0095); non-compliance can bring a governor-appointed receiver or withheld funds</li>
+            <li>Members may withdraw by majority vote of their governing body (§391.015)</li>
+          </ul>
+          <p class="smallcaption">Stated plainly in open court on July 13, 2026: a 391 is "perception of doing something
+            without actually accomplishing the main goal, which would be to stop data centers… What it does do is delay
+            the process and provides more hurdles."</p>
+        </div>
+        <div>
+          <h3>The two routes</h3>
+          <p style="font-size:0.95rem"><strong>Route A — a new Parker–Hood sub-regional commission.</strong> Drafted
+            July 8, 2026 and scoped narrowly: a ten-member board, at least two-thirds elected officials, five seats for
+            Parker, ex officio seats offered to legislators in the region, and a subject-matter <em>exclusion</em>
+            limiting it to data centers and their direct impacts. Its definition of "Data Center" deliberately reaches
+            hyperscale, AI/HPC, colocation and crypto facilities <em>and</em> the generation, transmission, substation
+            and water infrastructure built principally to serve them.</p>
+          <p style="font-size:0.95rem"><strong>Route B — work inside the 391 Parker is already in.</strong> The North
+            Central Texas Council of Governments is itself a Chapter 391 commission. Judges in Johnson and Erath
+            Counties want a consensus built inside the COG, and NCTCOG administers roughly $2 billion in regional
+            transportation funding — leverage that cuts both ways. As of July 13 the county had no local partner
+            secured for Route A, and one commissioner had floated the City of Weatherford instead.</p>
+          <p class="smallcaption">The court's own concern was pace: "when they meet in August they'll talk about what
+            they need to meet about in September." Meanwhile the Upper Trinity GCD has appeared at two court sessions —
+            and it holds the one authority in this picture that HB 2127 did not preempt.</p>
+        </div>
+      </div>
+
+      <p class="source">Tex. Loc. Gov't Code §§391.002–391.016 · Parker–Hood draft resolution, July 8, 2026 ·
+        Commissioners Court transcripts, June 22, June 30 and July 13, 2026. The local transcript record ends
+        July 15, 2026; where the 391 track stands after that date is not yet documented here.</p>
     </section>
 
     <!-- ═══════════════ 12 · WHAT THE COURT CAN DO ═══════════════ -->
     <section class="slide" id="court-can-do">
-      <div class="eyebrow">11 · What this court can do</div>
-      <h2>The court can't block it — but it controls the money</h2>
-      <h3 class="subhead">Real authority, within Dillon Rule limits</h3>
+      <div class="eyebrow">11 · What this court has done, and what is still open</div>
+      <h2>The money lever has already been pulled. The water lever has not.</h2>
+      <h3 class="subhead">Revised September 2026 — the June version of this slide asked for something the court has since done</h3>
 
-      <p class="lead">The county can't stop construction or override the state. But it doesn't have to hand over a tax
-        break — and that decision is entirely the court's to make. That's the lever.</p>
+      <p class="lead">In June this slide argued that the abatement vote was the lever and the window was open. The court
+        closed that window itself: <strong>Resolution 26-25</strong> declines abatements for data centers, and on
+        June 30 the court put it beyond doubt — "there will be zero tax abatements for data centers in Parker County."
+        On June 9 it also resolved against open-loop evaporative cooling and high-volume potable-water use. Both are
+        real, and both are now the baseline of our model rather than an ask.</p>
 
       <div class="twocol">
         <div>
-          <h3>What the court CAN do</h3>
+          <h3>Already done</h3>
           <ul class="bullets" style="font-size:0.95rem">
-            <li><strong>Refuse a Chapter 312 abatement</strong> — fully within the court's authority</li>
-            <li><strong>Refuse a Chapter 381 agreement</strong> — same</li>
-            <li><strong>Adopt a formal policy</strong> declining incentives for data-center projects above a threshold
-              size or absent specified conditions</li>
-            <li><strong>Direct the EDC</strong> to decline data-center incentive task forces</li>
-            <li><strong>Issue a non-binding resolution</strong> articulating the court's policy</li>
-            <li><strong>File TPIA requests</strong> for the TCEQ permit file</li>
-            <li><strong>Coordinate</strong> with the 13 other counties Fort Worth Power Core has sited in</li>
+            <li><strong>Resolution 26-25</strong> — no Chapter 312 abatements for data centers</li>
+            <li><strong>June 9 resolution</strong> — opposing open-loop evaporative cooling and high-volume potable
+              water; urging closed-loop, reclaimed and non-potable sources, and demand-response participation</li>
+            <li>Data centers made a <strong>standing agenda item</strong>, with evening sessions added for residents who
+              work days</li>
+            <li>TCEQ, ERCOT and PUC representatives <strong>invited to appear</strong> at the June 9 session</li>
+          </ul>
+          <h3 style="margin-top:1rem">Still open — and not preempted</h3>
+          <ul class="bullets" style="font-size:0.95rem">
+            <li><strong>Water.</strong> Participate in Upper Trinity GCD proceedings; any high-volume permit here is
+              contestable at SOAH by any person in the district. Water Code Ch. 36 was untouched by HB 2127.</li>
+            <li><strong>Roads.</strong> Road-use and infrastructure agreements as a condition of construction traffic</li>
+            <li><strong>Plat and floodplain.</strong> The subdivision process and county flood-hazard permits</li>
+            <li><strong>Records.</strong> A public-information request, through the county attorney, for the TCEQ
+              registration file — the capacity number missing from every public surface</li>
+            <li><strong>Air.</strong> Parker County sits in the DFW 8-hour ozone nonattainment area, classified
+              <strong>Severe</strong>, where the major-source NOx threshold is 25 tons per year (30 TAC §116.12,
+              Table I). A plant permitted as "backup/bridge power" but testified to run continuously is worth asking
+              TCEQ about in writing, in correspondence prepared by the county attorney.</li>
+            <li><strong>Coordination.</strong> The 391 decision, and contact with the other counties where this operator
+              holds air permits</li>
           </ul>
         </div>
         <div>
-          <h3>What the court CANNOT do</h3>
+          <h3>Still outside the county's reach</h3>
           <ul class="bullets" style="font-size:0.95rem">
-            <li>Block Black Mountain from building on private land (Dillon Rule)</li>
-            <li>Override TCEQ permitting</li>
-            <li>Override ERCOT interconnection</li>
-            <li>Pass an enforceable land-use moratorium (Hill County is finding out the legal cost)</li>
-            <li>Set city zoning rules (only cities can; data centers are not a permitted use in any Weatherford zoning
-              district, and the city declined to add them)</li>
+            <li>Zoning — Parker has no Ch. 231 grant, unlike Hood County</li>
+            <li>A land-use moratorium — see Hill County, and Ch. 102A</li>
+            <li>TCEQ air permitting; the agency reads Health &amp; Safety Code §382.0518(b) as requiring it to grant a
+              complete application</li>
+            <li>ERCOT interconnection and the state's Batch Zero process</li>
+            <li>City zoning — Weatherford has said data centers "remain NOT ALLOWED," but the site is outside the city</li>
+            <li><strong>State incentives.</strong> Tax Code §151.359 and §151.3595 exempt qualifying data centers from
+              sales tax on equipment, cooling, and electricity. A county resolution reaches none of it.</li>
           </ul>
-          <p class="smallcaption" style="margin-top:0.8rem">The political lever for residents is the <strong>abatement
-              vote</strong>. That vote is fully discretionary. Black Mountain has not yet filed for an abatement — but
-            they will. The window to set policy is now.</p>
+          <p class="smallcaption" style="margin-top:0.8rem">And one limit worth stating honestly: a resolution binds no
+            future court, and it does not bind the hospital district, the junior college, ESD-1 or the lateral road
+            fund — each grants its own Chapter 312 agreement.</p>
         </div>
       </div>
 
-      <p class="source">Texas Tax Code Chapters 312 and 381 · Texas Constitution Article XI (county powers).</p>
+      <p class="source">Tex. Tax Code Ch. 312, §§151.359, 151.3595 · Tex. Water Code Ch. 36 · Tex. Civ. Prac. &amp; Rem.
+        Code Ch. 102A · Tex. Health &amp; Safety Code §382.0518(b) · Commissioners Court transcripts, June 9, June 30
+        and July 13, 2026 · UTGCD rules.</p>
     </section>
 
     <!-- ═══════════════ 13 · THE ASK ═══════════════ -->
     <section class="slide" id="the-ask">
       <div class="eyebrow">12 · The ask</div>
-      <h2>Six specific actions for the June 9 session</h2>
-      <h3 class="subhead">None require new authority — all are within the court's existing powers</h3>
+      <h2>Seven actions still open to this court</h2>
+      <h3 class="subhead">Revised September 2026 — the asks that mattered in June have been adopted. These are what is left.</h3>
 
-      <p class="lead">Here is the concrete request. Each item is something this court can do on its own, today, without
-        waiting for the state or a new law.</p>
+      <p class="lead">The June version of this slide asked the court to refuse abatements and to make data centers a
+        standing public agenda item. <strong>It did both</strong> — Resolution 26-25 and the June 9 water resolution are
+        on the record, and the evening sessions happened. What follows is not a repeat. Each item below is something no
+        one has done yet, none require new statutory authority, and none run through the land-use route that has cost
+        Hill County and Hood County so dearly.</p>
+
+      <div class="card" style="border-left:0.4rem solid var(--pal-water); max-width:var(--measure); margin:0 0 1.2rem;">
+        <strong style="color:var(--pal-water);">On correspondence:</strong> several of these asks involve writing to
+        agencies outside county government — TCEQ, the PUCT, ERCOT, the groundwater district. <strong>Any such
+        communication should be drafted, reviewed and sent by the county attorney.</strong> This project can supply
+        example language and the underlying citations as a starting point, and is glad to. It does not offer a final
+        draft, and takes no responsibility for what is ultimately sent. The county speaks for itself.
+      </div>
 
       <div class="card" style="border-left:0.4rem solid var(--pal-land); max-width:var(--measure); margin:0 0 1.2rem;">
-        <strong style="color:#1a6b3a;">In fairness to this court:</strong> available campaign-finance filings show
+        <strong style="color:#1a6b3a;">In fairness to this court:</strong> campaign-finance filings show
         <strong>no contributions to any member</strong> — Judge Deen or Commissioners Conley, Holt, Walden, or Hale —
-        from Black Mountain, Fort Worth Power Core, or Rhett Bennett. The documented giving went to state and city
-        officials, not to the county. This request is not an accusation; it asks the court to put on the record a
-        position more than one member has already voiced.
+        from Black Mountain, Fort Worth Power Core, or Bennett. That is not an assumption: all 234 campaign-finance
+        reports posted by Parker County for 25 elected officials, 2021&ndash;2026, were pulled and machine-read, and
+        searched against 30 entity patterns covering the Black Mountain ecosystem and 27 other data-center actors.
+        <strong>Zero matches in any donor field.</strong> The 22 surface hits were all expenditures or false positives —
+        including a payee named Jeff Bennett, no relation, and a street called Bennett Road. The documented giving went
+        to state and city officials, not to this county. This request is not an accusation.
       </div>
 
       <div class="ask">
-        <strong>1. Adopt a formal no-incentive policy today — before any application is filed.</strong> Black Mountain
-        has not yet filed for a Chapter 312 or Chapter 381 abatement. <em>This session is the window.</em> A policy
-        adopted before an application arrives is legally cleaner and politically stronger than a rejection after the
-        fact.
-      </div>
-      <div class="ask">
-        <strong>2. Use the boilerplate Chapter 381 framework Judge Deen proposed on May 26</strong> as the instrument.
-        It defines the county's position on data-center incentives going forward and applies to any future applicant,
-        not just Black Mountain.
-      </div>
-      <div class="ask">
-        <strong>3. Direct an inquiry to the 13 other Texas counties</strong> Fort Worth Power Core has sited in — Bell,
-        Bowie, Carson, Cherokee, Fannin, Hale, Jack, Somervell, Tarrant, Wheeler, Williamson. Coordinated pushback is
-        far stronger than one county acting alone.
-      </div>
-      <div class="ask">
-        <strong>4. File a TPIA request</strong> for the full TCEQ permit file #179422 — application documents,
-        correspondence, and whether public-notice requirements were met.
-      </div>
-      <div class="ask">
-        <strong>5. No executive sessions on data-center matters.</strong> This court committed publicly on May 26 to a
-        standing agenda item. Today honors that. Every discussion belongs on the public record.
-      </div>
-      <div class="ask">
-        <strong>6. Direct the county attorney to send TCEQ a written inquiry on Permit 179422.</strong> Parker County is
-        in the DFW <strong>Severe</strong> ozone nonattainment area — the NSR major-source threshold here is <strong>25
-          tons/year of NOx</strong>, not 250. The permit was issued on a "backup power" characterization; the City
-        Manager testified it will run continuously. Those facts conflict. Ask TCEQ: was the correct threshold applied? A
-        draft letter for the court clerk is available today.
+        <strong>1. Direct the county attorney to inquire with TCEQ, and to request the registration file.</strong>
+        The question the record cannot answer:
+        Parker County sits in the DFW <strong>Severe</strong> ozone nonattainment area, where the major-source NOx
+        threshold is <strong>25 tons per year</strong>, not 250 — was Registration 179422 evaluated against that
+        threshold, and against the continuous operating profile testified to on May 26, rather than the "backup/bridge
+        power" characterization in the application? Pair it with a public-information request for the full registration
+        file. <em>The permitted capacity of this plant does not appear on any public surface.</em> The Central Registry
+        entry has no capacity; the Central File Room returns no documents. That number should not be something a
+        citizen has to infer.
       </div>
 
-      <p class="source">None of these asks require new statutory authority. All are within the court's existing powers.
-      </p>
+      <div class="ask">
+        <strong>2. Amend the June 9 water resolution to cover total system water.</strong> As written it opposes
+        open-loop evaporative cooling. That is right but incomplete: a closed-loop hall drawing combined-cycle or grid
+        power consumes about <strong>205 million gallons a year at 75 MW</strong> — essentially the same as an
+        evaporative hall, just consumed where the electricity is made. The resolution should state the county's
+        standard as <strong>total water per unit of computing — cooling plus generation</strong>, so that a project
+        cannot satisfy it by moving the water upstream.
+      </div>
+
+      <div class="ask">
+        <strong>3. Put Parker County on the record with the Upper Trinity GCD.</strong> Through the county attorney,
+        three specific requests: a
+        standing request for <em>notice of every high-volume permit application</em> filed anywhere in the county;
+        a stated intent to seek a <em>contested-case hearing</em> if one is filed for this tract; and a request that
+        the district require <em>whole-system water disclosure</em> — cooling and on-site generation together — in any
+        high-volume application. The district's rules are the one authority in this picture that HB 2127 did not
+        preempt, and the district is already building a local groundwater flow model that will settle the thickness
+        question at this tract.
+      </div>
+
+      <div class="ask">
+        <strong>4. File with the PUCT and ERCOT before the audit closes.</strong> Every data center in the
+        interconnection queue must now report its incentives, power draw, water use, community mitigation and
+        ownership; <strong>ERCOT is working to finish by December 10, 2026.</strong> Parker County should ask, in
+        writing and through the county attorney, for two things: that results be published at <em>county level</em> rather than aggregated statewide,
+        and that water be reported as a whole-system figure. The RFI currently collects cooling technology and power
+        sourcing in separate boxes — nobody upstream is adding them together.
+      </div>
+
+      <div class="ask">
+        <strong>5. Settle the Chapter 391 question with a date certain.</strong> Either route is defensible — a
+        Parker–Hood sub-regional commission, or working inside the North Central Texas COG, which is itself a 391. What
+        is not defensible is the drift this court named in open session on July 13: a meeting in August to decide what
+        to discuss in September. Direct the County Judge to return a recommendation and a draft interlocal agreement by
+        a specific date. Intergovernmental contact with the other counties where this operator holds air permits —
+        Bell,
+        Bowie, Carson, Cherokee, Fannin, Hale, Jack, Somervell, Tarrant, Wheeler and Williamson — should run through
+        the judge's office with the county attorney's review of anything put in writing.
+      </div>
+
+      <div class="ask">
+        <strong>6. Extend the no-abatement position to the units it does not reach, and set the terms for what does
+        get built.</strong> Resolution 26-25 binds neither a future court nor the <em>hospital district, junior
+        college, ESD-1, or lateral road fund</em> — each grants its own Chapter 312 agreement. Ask each to adopt the
+        same position. And adopt now, before construction traffic, a policy requiring a <strong>road-use and
+        infrastructure agreement with financial assurance</strong> as a condition of any development at this scale.
+        That is an ordinary county power, it survives the preemption cases, and it is far easier to require before a
+        project breaks ground than after.
+      </div>
+
+      <div class="ask">
+        <strong>7. Adopt decommissioning terms now, and attach them to anything the county signs.</strong> Texas already
+        requires this of other energy infrastructure. Utilities Code <strong>Ch. 301</strong> (wind),
+        <strong>Ch. 302</strong> (solar) and, as of September 1, 2025, <strong>Ch. 303</strong> (battery storage)
+        require removal obligations and financial assurance in the landowner agreement — equipment, transformers,
+        substations and cables pulled <em>to at least three feet below grade</em>, holes filled with like soil, roads
+        removed, land restored to tillable condition and reseeded, with the cost set by an independent Texas-licensed
+        engineer. <strong>Data centers and their on-site generation are covered by none of it.</strong> The county
+        cannot impose this by ordinance — that is the land-use route that got Hill County sued — but it can adopt these
+        terms as policy and require them in every instrument it does execute: a road-use agreement, any utility or
+        right-of-way consent, and any future incentive agreement. Ask UTGCD to require the well-plugging piece, and ask
+        the delegation to close the statutory gap in 2027.
+        <div style="margin-top:0.7rem; font-size:0.93rem; line-height:1.6">
+          <strong>The parameters. "Pre-data-center state" is only enforceable if it is defined before construction:</strong>
+          <ul class="bullets" style="margin-top:0.4rem">
+            <li><strong>Baseline first.</strong> No ground disturbance until a pre-construction condition survey is
+              filed with the county and escrowed: topography and drainage, soil profile and compaction, agricultural
+              classification, vegetation, an inventory of every water well with static levels and water quality, and a
+              dated photographic record. The bond restores the property to <em>that document</em>.</li>
+            <li><strong>Removal to agricultural depth, not the statutory minimum.</strong> All above-grade structures;
+              all foundations, slabs, piers, buried conduit and piping to <strong>at least four feet</strong> — below
+              normal tillage and root zone, not the three feet the storage statute allows; overhead lines, fencing,
+              security lighting, access roads, culverts and laydown yards.</li>
+            <li><strong>Soil and water made whole.</strong> Testing and remediation for hydrocarbons, dielectric fluid
+              and coolant at every transformer, turbine and fuel-handling location; all water wells plugged to TDLR and
+              UTGCD standards; original contours and drainage restored; soil decompacted to <strong>18–24 inches</strong>;
+              a minimum <strong>12 inches</strong> of certified clean topsoil replaced; reseeding to a native or
+              agriculturally appropriate mix with noxious-weed control through <strong>three growing seasons</strong>.</li>
+            <li><strong>Amount, with the loophole closed.</strong> Full cost of removal, restoration, recycling and
+              disposal, estimated by an independent Texas-licensed professional engineer, <strong>with no salvage-value
+              credit</strong> — the offset the state statutes permit is exactly how these funds come up short when
+              scrap prices fall. Escalated annually to a published construction cost index and recalculated every
+              five years.</li>
+            <li><strong>Posted before the risk, not after it.</strong> Security in place <em>before ground disturbance
+              for each phase</em> — not at year 10 or year 15, as the battery statute allows. Cash escrow, irrevocable
+              standby letter of credit, or a surety bond from a Treasury Circular 570 surety. <strong>No parent-company
+              guarantees and no self-bonding</strong>, the mechanisms that left coal reclamation unfunded elsewhere.</li>
+            <li><strong>Triggers and deadline.</strong> Twelve consecutive months of non-operation without written
+              extension, abandonment, bankruptcy, or lapse of the air registration; restoration complete within
+              <strong>eighteen months</strong> of the trigger.</li>
+            <li><strong>It has to survive the owner.</strong> Recorded as a covenant running with the land, binding
+              successors and assigns; any transfer conditioned on the buyer posting equivalent security first. Annual
+              certification of operating status, county right of inspection, and release of the bond only after
+              county-verified restoration and two growing seasons of established vegetation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="source">None of these require new statutory authority. Items 1 and 4 are letters; 2, 6 and 7 are
+        resolutions and contract terms; 3 is a filing with a district the county already sits inside; 5 is a scheduling
+        decision. What is deliberately absent: any moratorium, plat denial, or land-use prohibition — the routes that
+        produced a $100 million claim against Hill County and litigation against Hood County under Civil Practice &amp;
+        Remedies Code Ch. 102A. Decommissioning model: Tex. Util. Code Ch. 301 (HB 2845, 2019), Ch. 302 (SB 760, 2021),
+        Ch. 303 (HB 3809, 2025) and the HB 3228 amendments adding recycling and disposal costs to the assurance
+        formula — with the salvage-value offset and the deferred posting deadline deliberately not carried over.</p>
     </section>
 
     <!-- ═══════════════ 14 · SEE FOR YOURSELF ═══════════════ -->
@@ -1373,26 +1740,41 @@
             <li><strong>USDA NASS Census of Agriculture 2022</strong> — cropland share</li>
             <li><strong>TX Comptroller Registered Qualifying Data Centers</strong> — operating fleet</li>
             <li><strong>Parker County Commissioners Court</strong> — May-26-2026 session transcript</li>
-            <li><strong>Texas Ethics Commission</strong> — Report #101029815 ($500K Abbott contribution); confirmed by
-              Texas Tribune (Jan 15, 2026)</li>
+            <li><strong>Texas Ethics Commission</strong> — bulk export loaded to Postgres (35.9M contribution rows),
+              current through the July 15, 2026 filing deadline. Reports #101029815 and #101055764 (the two $500,000
+              gifts to Texans for Greg Abbott), #100970637 and #101026985 (Sen. Phil King), #101028141, #101035143 and
+              #101058003 (Rep. Ken King). Query and extract archived at
+              <code>profile_2026_09/tec_black_mountain_query.sql</code> and
+              <code>tec_black_mountain_contributions.csv</code>. First $500,000 also confirmed by Texas Tribune
+              (Jan 15, 2026).</li>
             <li><strong>Fort Worth Report / KERA News</strong> — political-contribution records; $10B FW campus stall;
               Fort Worth City Council Jun 23 vote</li>
-            <li><strong>TCEQ turbine permit database</strong> (turbine-lst.xlsx) — all 14 FWPC permit numbers, dates,
-              and MW ratings</li>
-            <li><strong>GEM Wiki / ERCOT interconnection queue</strong> — site-level capacity and grid-connection status
-              for Tier B sites</li>
+            <li><strong>TCEQ turbine permit list</strong> — 14 FWPC registrations, archived as
+              <code>parker_costs/fwpc_sites.csv</code>. <em>Correction, Sept 2026:</em> the spreadsheet of MW ratings
+              this slide previously cited is not archived in the repository and its Parker figure could not be
+              re-sourced; the site list is.</li>
+            <li><strong>ERCOT / PUCT</strong> — SB 6 large-load framework, Batch Zero, and the August 3, 2026 audit
+              directive. No Parker queue position has been announced.</li>
+            <li><strong>Upper Trinity GCD</strong> — proposed rules amendments for the August 27, 2026 hearing and the
+              district's signed agenda for that date</li>
+            <li><strong>Parker County Commissioners Court</strong> — session transcripts of June 9, June 22, June 30 and
+              July 13, 2026 (Resolution 26-25; the open-loop cooling resolution; the Chapter 391 discussion)</li>
           </ul>
         </div>
         <div>
           <h3>Methodology</h3>
-          <p style="font-size:0.92rem">The cost model takes the taxable improvements (data-center capex + gas turbines
-            at $8M/MW · 85% taxable share) and applies an 80% Chapter 312 abatement rate. It reports the <strong>net
-            local loss</strong> — the foregone revenue of the county, hospital district, junior college, ESD, and
-            lateral road, which have <em>no</em> state backfill — and divides by Parker County households (46,404). The
-            Weatherford ISD share is deliberately <strong>excluded</strong>: school districts cannot grant Chapter 312
-            abatements, and a school-district value limitation (Chapter 313 / JETI) is largely replaced by state funds
-            under the Foundation School Program, so it is a state cost, not a net local loss (TEA; Texas Comptroller;
-            Tax Code §312.002).</p>
+          <p style="font-size:0.92rem"><strong>Revised September 1, 2026.</strong> The model no longer produces a
+            single figure. It takes taxable improvements (data-center capex at $8M/MW plus gas turbines · 85% taxable
+            share) and reports a <strong>grid</strong>: five scale scenarios against three abatement states, each row
+            labelled with the class of evidence its scale rests on. The baseline column is <strong>no abatement</strong>,
+            following Parker County Resolution 26-25. The 80% column is retained so the June 2026 figures remain
+            visible and checkable rather than quietly deleted.</p>
+          <p style="font-size:0.92rem">Weatherford ISD is now reported <strong>alongside</strong> the local
+            jurisdictions instead of being set aside. Chapter 312 never reached school districts (Tax Code §312.002),
+            and <strong>JETI excludes data centers by NAICS code</strong> — so the ISD levy on a data hall is not
+            abatable by anyone. Dispatchable generation <em>is</em> JETI-eligible, so the turbines and the data hall are
+            modelled as separate improvement pools. <strong>Per-household figures have been retired</strong>: dividing a
+            scenario by 46,404 households produced a number that read like a bill.</p>
           <p style="font-size:0.92rem">HB 3 and SB 2 cap how fast a taxing unit can raise revenue, so the foregone
             amount cannot be recovered by raising rates later — it is treated as a permanent reduction in local fiscal
             capacity, not as a per-resident charge. The separate question of the costs the project imposes on the
@@ -1406,7 +1788,11 @@
         </div>
       </div>
 
-      <p class="source">Henry Lee Butler · prepared for the June 9, 2026 Parker County Commissioners Court session.</p>
+      <p class="source">Henry Lee Butler · originally prepared for the June 9, 2026 Parker County Commissioners Court
+        session · cost, water, 391 and mitigation sections revised September 1, 2026. Where a June figure has been
+        superseded, it is shown in its new context rather than removed — and the June briefing itself is kept
+        unchanged at <a href="../archive/2026-06/">archive/2026-06</a>, so you can read what it said and judge the
+        correction for yourself.</p>
     </section>
 
     <!-- ═══════════════ 16 · QUESTIONS + WHAT YOU CAN DO ═══════════════ -->
@@ -1443,8 +1829,16 @@
             any local body. Ask for the air-permit file, the commissioners court video, the EDC task-force materials.
           </div>
           <div class="ask water">
-            <strong>Contact your elected officials.</strong> Tell them this matters — and that the abatement vote is the
-            citizens' lever.
+            <strong>Use the groundwater district.</strong> This is now the strongest citizen lever, and it is
+            individual: any person in the Upper Trinity GCD may request a contested-case hearing on a high-volume
+            permit application, and the district must give notice before it acts. Register your well, watch the
+            district's hearing notices, and be ready. <em>The abatement fight is over — the county has already refused.
+            The water question is live.</em>
+          </div>
+          <div class="ask water">
+            <strong>Contact your elected officials.</strong> Tell them this matters. The state is collecting data on
+            every project in the queue right now, with ERCOT working to finish by December 10, 2026 — asking that the
+            results be published county by county is a request an ordinary constituent can make.
             <div style="font-size:0.85rem; margin-top:0.5rem; line-height:1.55">
               <strong>Sen. Phil King</strong> · TX Senate District 10 (primary for Parker) ·
               <code>senate.texas.gov/member.php?d=10</code><br>

@@ -1,4 +1,13 @@
 #!/usr/bin/env Rscript
+# ══════════════════════════════════════════════════════════════════════════
+# DEPRECATED 2026-09-01 — DO NOT USE FOR PUBLICATION.
+# Superseded by ../profile_2026_09/RCO_05g_scenarios.R.
+# This script assumed an 80% Chapter 312 abatement as the base case. Parker
+# County Commissioners Court Resolution 26-25 declines abatements for data
+# centers, so that assumption is no longer the baseline. The ag-rollback
+# constant below has also been corrected from 5 years to 3 (HB 1743, 2019);
+# any figure produced by an earlier run of this file is retracted.
+# ══════════════════════════════════════════════════════════════════════════
 # RCO_05c_bm_panels.R — two Black Mountain visuals:
 #   B: side-by-side reality comparison (today vs post-abatement)
 #   C: 3-scenario sensitivity sweep at 50% / 80% / 100% abatement
@@ -20,7 +29,7 @@ BM_TAX_LIVE <- sum(bm_live$tax_at_ly_rate, na.rm=TRUE)
 BM_TAX_AG   <- sum(unique(bm[notice_type=="ORIGINAL"],
                            by="prop_id")$tax_at_ly_rate, na.rm=TRUE)
 BM_NEW_LAND_REV <- BM_TAX_LIVE - BM_TAX_AG
-BM_ROLLBACK     <- BM_NEW_LAND_REV * 5    # TX §23.55, 5-year back-tax
+BM_ROLLBACK     <- BM_NEW_LAND_REV * 3    # TX §23.55: 3 yrs + 5% interest (HB 1743, 2019)
 
 # Tax rates (Weatherford ISD area)
 RATES <- c(isd=0.010342, county=0.002459, ltr=0.000533,
@@ -138,7 +147,7 @@ text(5, 3.0, "Parker County, hospital, junior college, ESD-1",   cex=0.92, col="
 text(5, 1.7, sprintf("Plus $%s ONE-TIME rollback tax owed",
                      format(round(BM_ROLLBACK), big.mark=",")),
      cex=0.92, font=2, col="#a50f15")
-text(5, 1.2, "(TX Tax Code §23.55 — 5 years of back-tax",
+text(5, 1.2, "(TX Tax Code §23.55 — 3 yrs + 5% interest",
      cex=0.82, col="#666666")
 text(5, 0.8, "for losing agricultural valuation)",
      cex=0.82, col="#666666")

@@ -15,7 +15,7 @@ if you've set up a mirror at texascrossroads.net or henrylee.vote, swap the URL.
 >
 > The published deck, interactive map, and full data are at parker-data-pro-populo.github.io/data-center-surface-datarun. Every number traces to a public source.
 >
-> Headline figure: at the full buildout the 2,075-acre site supports, an 80% county abatement would cost Parker County and its special districts about $364 million in local revenue over 10 years — money the state does not replace (roughly $784 per county household per year). The school-district share is separate and largely backfilled by the state, so I don't count it as a local loss. In return: as few as 10–75 permanent jobs, and a product residents never buy.
+> Headline finding (revised September 2026): nobody has filed a number. No capacity has been disclosed for the Parker site, no permit application is on file with the county, and no ERCOT queue position has been announced. So instead of one figure, the deck now publishes a scenario grid — scale across the top, abatement down the side, and every row labelled with the class of evidence its scale rests on. Parker County has adopted Resolution 26-25: no abatements for data centers. Unabated, Phase 1 would pay local jurisdictions about $3.8M a year and Weatherford ISD about $6.6M — a share no county abatement can reach, because school districts cannot grant Chapter 312 and JETI excludes data centers.
 >
 > Commissioners court takes up data centers as a standing agenda item. The window for residents to push back on the abatement terms is open now.
 >
@@ -53,7 +53,7 @@ if you've set up a mirror at texascrossroads.net or henrylee.vote, swap the URL.
 
 **Variant 3 — leading with the cost**
 
-> $364 million in local revenue. 10 years. What an 80% county data-center abatement would cost Parker County and its special districts at the Black Mountain full buildout — money the state won't replace, for as few as 10–75 jobs. Public records, sourced methodology: parker-data-pro-populo.github.io/data-center-surface-datarun
+> No capacity filed. No county permit application. No announced queue position. Texas has frozen data-center interconnections pending a statewide audit due December 10. So we stopped publishing one number for the Black Mountain site and published the scenario grid instead — with the evidence class behind every row. Public records, sourced methodology: parker-data-pro-populo.github.io/data-center-surface-datarun
 
 
 **Variant 4 — leading with the meeting**
@@ -112,9 +112,9 @@ if you've set up a mirror at texascrossroads.net or henrylee.vote, swap the URL.
 >
 > A few key findings:
 >   - 2,075 acres have been assembled at FM 730/Pearson Ranch by Black Mountain Power LLC. Parker CAD stripped the agricultural exemption on May 15.
->   - TCEQ approved a 75-megawatt gas-turbine air permit in 2.5 weeks with no public notice.
->   - The same operator has 14 sites across 11 Texas counties.
->   - Under an 80% Chapter 312 abatement, a full buildout would cost Parker County and its special districts about $364 million over 10 years in local revenue the state doesn't replace — roughly $784 per county household a year. (The school-district share is separate and largely state-backfilled, so I don't count it as a local loss.)
+>   - TCEQ registered a five-turbine gas plant (Air New Source Registration 179422) in 2.5 weeks with no public notice. The 75-megawatt figure attached to it comes from testimony in open court on May 26, not from the permit itself — we now label it that way.
+>   - The same operator has 14 sites across 11 Texas counties, and its Bowie County plant, filed under the same standard permit, discloses roughly 446 MW.
+>   - Parker County has adopted Resolution 26-25: no tax abatements for data centers. Unabated, Phase 1 pays local jurisdictions about $3.8M a year; Weatherford ISD collects about $6.6M a year that no county abatement could touch.
 >   - State law (SB 2/HB 3) caps how fast the county can raise rates, so this revenue can't be recovered later — even as the project adds costs (water, roads, emergency response) to the existing budget. In return, data centers bring as few as 10–75 permanent jobs.
 >
 > This is not anti-data-center. It's about whether decisions of this scale get made in public view. I'd encourage anyone interested to come to the June 9 commissioners court session and speak.

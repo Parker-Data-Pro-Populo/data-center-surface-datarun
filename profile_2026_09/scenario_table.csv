@@ -1,0 +1,16 @@
+sid,label,evidence,mw,imp_total,abate,local_collected_yr,local_foregone_yr,local_collected_term,local_foregone_term,school_yr,school_term
+fw,"One Fort Worth-class campus 187 ac, 4 bldgs, 2.2M sq ft",DISCLOSED,,1e+10,0,50558000,0,505580000,0,87907000,879070000
+fw,"One Fort Worth-class campus 187 ac, 4 bldgs, 2.2M sq ft",DISCLOSED,,1e+10,0.5,25279000,25279000,252790000,252790000,87907000,879070000
+fw,"One Fort Worth-class campus 187 ac, 4 bldgs, 2.2M sq ft",DISCLOSED,,1e+10,0.8,10111600,40446400,101116000,404464000,87907000,879070000
+gas,"Gas plant only 5 turbines, no data hall",PERMIT,0,1.5e+08,0,758370,0,7583700,0,1318605,13186050
+gas,"Gas plant only 5 turbines, no data hall",PERMIT,0,1.5e+08,0.5,379185,379185,3791850,3791850,1318605,13186050
+gas,"Gas plant only 5 turbines, no data hall",PERMIT,0,1.5e+08,0.8,151674,606696,1516740,6066960,1318605,13186050
+implied,"1 GW, acreage-implied (the June 2026 assumption)",INFERRED,1000,9e+09,0,45502200,0,455022000,0,79116300,791163000
+implied,"1 GW, acreage-implied (the June 2026 assumption)",INFERRED,1000,9e+09,0.5,22751100,22751100,227511000,227511000,79116300,791163000
+implied,"1 GW, acreage-implied (the June 2026 assumption)",INFERRED,1000,9e+09,0.8,9100440,36401760,91004400,364017600,79116300,791163000
+multi,"Three FW-class campuses at 2,075-acre scale",INFERRED,,3e+10,0,151674000,0,1516740000,0,263721000,2637210000
+multi,"Three FW-class campuses at 2,075-acre scale",INFERRED,,3e+10,0.5,75837000,75837000,758370000,758370000,263721000,2637210000
+multi,"Three FW-class campuses at 2,075-acre scale",INFERRED,,3e+10,0.8,30334800,121339200,303348000,1213392000,263721000,2637210000
+phase1,Phase 1 ~75 MW of IT load + plant,TESTIMONY,75,7.5e+08,0,3791850,0,37918500,0,6593025,65930250
+phase1,Phase 1 ~75 MW of IT load + plant,TESTIMONY,75,7.5e+08,0.5,1895925,1895925,18959250,18959250,6593025,65930250
+phase1,Phase 1 ~75 MW of IT load + plant,TESTIMONY,75,7.5e+08,0.8,758370,3033480,7583700,30334800,6593025,65930250
