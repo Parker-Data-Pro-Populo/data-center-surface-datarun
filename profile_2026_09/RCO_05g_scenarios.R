@@ -44,7 +44,18 @@ bm[, has_corrected := any(notice_type == "CORRECTED"), by = prop_id]
 bm_live <- rbind(bm[notice_type == "CORRECTED"],
                  bm[!has_corrected & notice_type == "ORIGINAL"])
 bm_live <- unique(bm_live, by = "prop_id")
-BM_ACRES        <- sum(bm_live$acres, na.rm = TRUE)
+BM_ACRES        <- sum(bm_live$acres, na.rm = TRUE)          # 2,075.28 — the noticed parcels only
+# The notice batch is not the whole assembly. Parker CAD's certified roll carries a
+# 19th parcel, R000127494 (6.530 ac, geo id 22430.001.003.00), bought from the same
+# seller (DTB Investments L P), geocoded identically to its sibling R000127493, and
+# sequential in the same block — but it received no ag-strip notice, so it is absent
+# from bm_parcels_2026.csv. Groundwater allocation under UTGCD Rule 5.2 is charged per
+# contiguous controlled acre, so the water ceiling is computed on the full assembly.
+# (One further note: for R59769 the May 2026 notice reads 155.763 ac and the 2025
+# certified roll reads 155.373 — transposed digits, 0.39 ac. The notice is the newer
+# document and is what this file uses.)
+BM_ACRES_EXTRA   <- 6.530
+BM_ACRES_ASSEMBLY <- BM_ACRES + BM_ACRES_EXTRA               # about 2,081.8
 BM_TAX_LIVE     <- sum(bm_live$tax_at_ly_rate, na.rm = TRUE)
 BM_TAX_AG       <- sum(unique(bm[notice_type == "ORIGINAL"], by = "prop_id")$tax_at_ly_rate,
                        na.rm = TRUE)
@@ -268,7 +279,7 @@ cat("Wrote who_collects_B.png\n")
 # tract is what sets the ceiling. Shown across the plausible Trinity range.
 THICK <- c(50, 120, 250, 500)                       # ft of Trinity section
 ALLOC <- pmin(pmax(500 * THICK, 25000), 250000)     # gal/acre/yr after floor + cap
-ceiling_mgal <- BM_ACRES * ALLOC / 1e6
+ceiling_mgal <- BM_ACRES_ASSEMBLY * ALLOC / 1e6
 
 # ── TOTAL-SYSTEM water, not just the cooling tower ─────────────────────────
 # A closed-loop design moves water off the site; it does not remove it from the
@@ -327,8 +338,8 @@ bp <- barplot(ceiling_mgal, col = PAL$water, border = "white", ylim = c(0, ymax)
               names.arg = sprintf("%d ft\n%s gal/ac", THICK,
                                   format(ALLOC, big.mark = ",", trim = TRUE)),
               ylab = "million gallons per year", las = 1,
-              main = sprintf("SUPPLY — what %s acres may legally produce",
-                             format(round(BM_ACRES), big.mark = ",")),
+              main = sprintf("SUPPLY — what %s assembled acres may legally produce",
+                             formatC(BM_ACRES_ASSEMBLY, format = "f", digits = 1, big.mark = ",")),
               cex.main = 0.98, cex.names = 0.74, cex.lab = 0.9)
 text(bp, ceiling_mgal, sprintf("%.0f", ceiling_mgal), pos = 3, cex = 0.76, font = 2, col = PAL$water)
 abline(h = 25, lty = 3, col = PAL$peer, lwd = 1.6)
@@ -396,6 +407,6 @@ for (k in scen$sid) {
 cat("\nWeatherford ISD, 10 yrs, not abatable:\n")
 for (k in scen$sid) cat(sprintf("  %-34s %s\n", gsub("\n", " / ", scen[sid == k]$label),
                                 fmtM(grid[sid == k & abate == 0]$school_term)))
-cat(sprintf("\nGroundwater ceiling on %s ac: %.0f-%.0f Mgal/yr (%.2f-%.2f MGD)\n",
-            format(round(BM_ACRES), big.mark = ","), min(ceiling_mgal), max(ceiling_mgal),
+cat(sprintf("\nGroundwater ceiling on %s assembled ac: %.0f-%.0f Mgal/yr (%.2f-%.2f MGD)\n",
+            formatC(BM_ACRES_ASSEMBLY, format = "f", digits = 1, big.mark = ","), min(ceiling_mgal), max(ceiling_mgal),
             min(ceiling_mgal) * 1e6 / 365 / 1e6, max(ceiling_mgal) * 1e6 / 365 / 1e6))

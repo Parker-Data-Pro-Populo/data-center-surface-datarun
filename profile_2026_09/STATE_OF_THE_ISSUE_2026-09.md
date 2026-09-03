@@ -484,3 +484,51 @@ Star-Telegram / Yahoo 2026-05-20 and 2026-05-21.
 Primary local records: Parker County Commissioners Court transcripts 2026-05-26, 06-09, 06-22,
 06-30, 07-13 (`commissioners court studies/video_meetings/transcripts/`); Parker–Hood 391 draft
 resolution; UTGCD proposed rules amendments for the 2026-08-27 hearing.
+
+
+---
+
+## Acreage, verified 2026-09-02
+
+Checked against the Parker CAD certified export (`parker_property.prop`, host pg01, db `parker`)
+after a prior report differed by about 7 acres.
+
+- **2,075.28** is correctly computed from `bm_parcels_2026.csv` — 18 parcels, and the `acres`
+  column matches the ACRES figure in every legal description exactly.
+- The same 18 parcels total **2,074.89** on the 2025 certified roll. The whole gap is one parcel:
+  **R59769 — notice 155.763 ac, roll 155.373 ac**, transposed digits, 0.390. The May 2026 notice
+  is the newer document and is what the site uses.
+- The ~7 acres is a **19th parcel that never received a notice**: **R000127494, 6.530 ac**, geo id
+  22430.001.003.00 (sequential after R127493 `.001.00` and R122282 `.002.00`), owned by
+  **DTB Investments L P** — the same seller as most of the assembly — and geocoded identically to
+  its sibling R127493. It appears nowhere in the notice batch or the evidence set, consistent with
+  it not having been ag-valued, so no ag-strip correction was issued.
+- **Assembly: 2,081.81 ac** on the notice basis (2,081.42 on the roll basis). This reconciles the
+  "2,082 acres" in `house_meeting/analytics/parker_data_center_datasheet.html` to the acre.
+
+Site now states about **2,081 acres** assembled, with the 18 noticed parcels at 2,075.28 called out
+separately. The water ceiling is computed on the full assembly, since UTGCD Rule 5.2 charges
+allocation per contiguous controlled acre: **52-520 Mgal/yr**.
+
+**Not verified:** no deed for R127494. Same seller, adjacent, sequential and co-geocoded is strong
+but circumstantial. If a title search shows it was not part of the transaction, revert to 2,075.28.
+
+**Caution found in passing:** `parker_property.parcel_panel` reports 153.327 ac for R000066342
+where both `prop` and the notice say 65.897. The panel's acres column should not be trusted; use
+`prop`. (Its `is_dv` column is already known bad — see [[property-tax-db]].)
+
+## State incentives, verified 2026-09-02
+
+Tax Code **§151.359** (state sales tax on equipment, cooling, electrical gear and the electricity
+itself; 10 yrs at $200-250M investment, 15 yrs above) and **§151.3595** (state *and local*, 20 yrs,
+at $500M / 40 jobs / 20 MW contracted transmission) are **statutes administered by the Comptroller**
+— separately elected, not a gubernatorial appointee. **The Governor cannot repeal them or direct
+their denial.** He has named repeal a 2027 legislative priority and Senate Finance chair Joan
+Huffman has said she will file; there was no 2026 regular session.
+
+The live lever is compliance, and it is thin: **138 certified** (59 in 2026 alone, ~10/month),
+**20 audited**, **6 of those 20 out of compliance** — four failed the job requirement, one
+square-footage, one a self-reported broken power agreement. Non-compliant facilities repay the
+waived tax. Two-year cost estimated at **$3.2 billion** (2025); the chief revenue estimator says the
+next estimate will be significantly higher. Sources: Texas Tribune 2026-07-27; Senate Finance
+testimony (Jenny Burleson, Tax Policy Division; Brad Reynolds, chief revenue estimator).

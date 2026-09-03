@@ -9,7 +9,7 @@ if you've set up a mirror at texascrossroads.net or henrylee.vote, swap the URL.
 
 **Variant A — neutral / factual opener**
 
-> Parker County families: a 2,075-acre data-center and natural-gas-power project is being assembled at FM 730 and Pearson Ranch Road in Weatherford ISD. The Texas Commission on Environmental Quality issued a 75-megawatt air permit for the site in 2.5 weeks, with no public notice. The same operator holds permits at 14 sites across 11 Texas counties.
+> Parker County families: a 2,081-acre data-center and natural-gas-power project is being assembled at FM 730 and Pearson Ranch Road in Weatherford ISD. The Texas Commission on Environmental Quality issued a 75-megawatt air permit for the site in 2.5 weeks, with no public notice. The same operator holds permits at 14 sites across 11 Texas counties.
 >
 > I spent the last two weeks pulling together what the public record actually says about this — the Parker CAD corrected notices, the TCEQ permit file, the corporate structure, and what it will cost residents under a standard Chapter 312 abatement.
 >
@@ -43,7 +43,7 @@ if you've set up a mirror at texascrossroads.net or henrylee.vote, swap the URL.
 
 **Variant 1**
 
-> Parker County, TX: Black Mountain Power LLC assembled 2,075 acres at FM 730/Pearson Ranch Rd for a 75MW gas-turbine + data-center complex. TCEQ approved the air permit in 2.5 weeks. No public notice. Sourced data + interactive map: parker-data-pro-populo.github.io/data-center-surface-datarun
+> Parker County, TX: Black Mountain Power LLC assembled about 2,081 acres at FM 730/Pearson Ranch Rd for a 75MW gas-turbine + data-center complex. TCEQ approved the air permit in 2.5 weeks. No public notice. Sourced data + interactive map: parker-data-pro-populo.github.io/data-center-surface-datarun
 
 
 **Variant 2**
@@ -111,7 +111,7 @@ if you've set up a mirror at texascrossroads.net or henrylee.vote, swap the URL.
 > The full project is at parker-data-pro-populo.github.io/data-center-surface-datarun. There's an interactive map you can click through, a 16-slide presentation deck I'll be presenting at the June 8 commissioners court session, and the underlying source code and data are all open.
 >
 > A few key findings:
->   - 2,075 acres have been assembled at FM 730/Pearson Ranch by Black Mountain Power LLC. Parker CAD stripped the agricultural exemption on May 15.
+>   - About 2,081 acres have been assembled at FM 730/Pearson Ranch by Black Mountain Power LLC. Parker CAD stripped the agricultural exemption from 18 of the parcels (2,075.28 acres) on May 15; a 19th adjacent parcel of 6.53 acres from the same seller received no notice.
 >   - TCEQ registered a five-turbine gas plant (Air New Source Registration 179422) in 2.5 weeks with no public notice. The 75-megawatt figure attached to it comes from testimony in open court on May 26, not from the permit itself — we now label it that way.
 >   - The same operator has 14 sites across 11 Texas counties, and its Bowie County plant, filed under the same standard permit, discloses roughly 446 MW.
 >   - Parker County has adopted Resolution 26-25: no tax abatements for data centers. Unabated, Phase 1 pays local jurisdictions about $3.8M a year; Weatherford ISD collects about $6.6M a year that no county abatement could touch.
