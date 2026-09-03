@@ -23,7 +23,18 @@ PAL <- list(
 )
 
 # ── Basemap (CARTO Voyager tiles, Z=7, TX bbox in EPSG:3857) ─────────────────
-BASEMAP_PATH <- "~/rco_run/basemap_carto_voyager_tx.png"
+# Look for the basemap where it actually lives (repo first), not only on the
+# machine the June run happened on.
+BASEMAP_PATH <- local({
+  cand <- c(Sys.getenv("RCO_BASEMAP", unset = NA_character_),
+            "scripts/basemap_carto_voyager_tx.png",
+            "../scripts/basemap_carto_voyager_tx.png",
+            "~/rco_run/basemap_carto_voyager_tx.png")
+  cand <- cand[!is.na(cand)]
+  hit  <- cand[file.exists(path.expand(cand))]
+  if (!length(hit)) stop("basemap PNG not found; set RCO_BASEMAP")
+  path.expand(hit[1])
+})
 # Web Mercator tile bbox for the assembled basemap
 # Z=7, X=[26..30], Y=[50..54], extended by 1 to right & bottom (montage geometry)
 .R_EARTH <- 6378137
@@ -63,7 +74,10 @@ init_tx_map <- function(title, subtitle = NULL, source_text = NULL,
               ylim = c(bbox["ymin"], bbox["ymax"]),
               asp = 1, xaxs = "i", yaxs = "i")
   raster <- blend_basemap(get_basemap(), basemap_alpha)
-  rasterImage(raster, bbox["xmin"], bbox["ymax"], bbox["xmax"], bbox["ymin"])
+  # rasterImage() takes (image, xleft, ybottom, xright, ytop). Until 2026-09-03 this
+  # passed ymax as ybottom and ymin as ytop, which drew every basemap upside down —
+  # mirrored place labels, Oklahoma at the bottom. The polygons were always correct.
+  rasterImage(raster, bbox["xmin"], bbox["ymin"], bbox["xmax"], bbox["ymax"])
   # Title
   title(main = title, cex.main = 1.45, line = 3, col.main = PAL$title)
   if (!is.null(subtitle))
