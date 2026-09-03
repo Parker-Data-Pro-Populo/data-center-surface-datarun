@@ -711,14 +711,13 @@
           <a href="#cost-buildout"><span class="n">07</span>Buildout — the scenario grid</a>
           <a href="#water-ceiling"><span class="n">07b</span>Water — the whole system</a>
           <a href="#ceilings"><span class="n">08</span>What the revenue caps actually do</a>
-          <a href="#why-parker"><span class="n">09</span>Why Black Mountain chose Parker</a>
-          <a href="#other-counties"><span class="n">10</span>What other communities tried</a>
-          <a href="#chapter-391"><span class="n">10b</span>The 391 question</a>
-          <a href="#court-can-do"><span class="n">11</span>What this court has done, and what is open</a>
-          <a href="#the-ask"><span class="n">12</span>The ask</a>
-          <a href="#interactive-map"><span class="n">13</span>See for yourself</a>
-          <a href="#sources"><span class="n">14</span>Sources &amp; methodology</a>
-          <a href="#questions"><span class="n">15</span>Questions &amp; what you can do</a>
+          <a href="#other-counties"><span class="n">09</span>What other communities tried</a>
+          <a href="#chapter-391"><span class="n">09b</span>The 391 question</a>
+          <a href="#court-can-do"><span class="n">10</span>What this court has done, and what is open</a>
+          <a href="#the-ask"><span class="n">11</span>The ask</a>
+          <a href="#interactive-map"><span class="n">12</span>See for yourself</a>
+          <a href="#sources"><span class="n">13</span>Sources &amp; methodology</a>
+          <a href="#questions"><span class="n">14</span>Questions &amp; what you can do</a>
         </nav>
       </div>
     </section>
@@ -751,8 +750,10 @@
 
       <div class="twocol">
         <div>
-          <p>The CAD issued <strong>corrected notices</strong> on all 18 parcels owned by Black Mountain Power LLC at
-            501 Pearson Ranch Road.</p>
+          <p>The CAD issued <strong>corrected notices</strong> to Black Mountain Power LLC on 18 parcels at
+            501 Pearson Ranch Road. The certified roll still carries most of them under the prior seller, DTB
+            Investments — CAD ownership records lag the transfers. A 19th adjacent parcel in the assembly received
+            no notice.</p>
           <p>The notices <strong>removed the agricultural exemption</strong>. The parcels are no longer being valued as
             ranchland, because they are no longer being used as ranchland.</p>
           <p>This is the appraisal district officially recognizing that the conversion has begun.</p>
@@ -933,7 +934,7 @@
     <section class="slide" id="statewide">
       <div class="eyebrow">04 · The statewide pattern</div>
       <h2>Parker is one site in a statewide rollout</h2>
-      <h3 class="subhead">Fort Worth Power Core LLC · 14 sites · ~5,800 MW · 26 months · one address</h3>
+      <h3 class="subhead">Fort Worth Power Core LLC · 14 sites · 26 months · one address</h3>
 
       <p class="lead">This isn't a one-off local project. The same operator has registered 14 gas plants across Texas in
         just over two years. Four are tied to data centers; the other ten are registered as merchant grid generation,
@@ -950,16 +951,16 @@
         </div>
         <div style="display:flex; flex-direction:column; gap:0.8rem">
           <div class="card fwpc">
-            <div class="label" style="color:var(--pal-fwpc)">Tier A — data-center power · 4 sites · ~261 MW</div>
+            <div class="label" style="color:var(--pal-fwpc)">Tier A — data-center power · 4 sites</div>
             <div style="font-size:0.95rem; line-height:1.5">
               <strong>Tarrant County ×3</strong> — 186 MW behind-the-meter<br>
               <span class="smallcaption">Powering the $10B Black Mountain campus, SE Fort Worth</span><br>
-              <strong>Parker County ×1</strong> — 75 MW<br>
+              <strong>Parker County ×1</strong> — ~75 MW <em>per testimony, not the permit</em><br>
               <span class="smallcaption">"Backup/bridge power for a new data center" (TCEQ permit language)</span>
             </div>
           </div>
           <div class="card gray">
-            <div class="label" style="color:var(--pal-muted)">Tier B — merchant grid generation · 10 sites · ~5,500 MW
+            <div class="label" style="color:var(--pal-muted)">Tier B — merchant grid generation · 10 sites
             </div>
             <div style="font-size:0.95rem; line-height:1.5; color:var(--pal-muted)">
               Bell · Bowie · Carson · Cherokee · Fannin<br>
@@ -987,8 +988,7 @@
         </div>
       </div>
 
-      <p class="source">Sources: TCEQ Central Registry CN606278281 · TCEQ turbine permit database · GEM Wiki · ERCOT
-        interconnection queue · Fort Worth Report.</p>
+      <p class="source">Sources: TCEQ Central Registry CN606278281 · the archived registration list, <code>parker_costs/fwpc_sites.csv</code> · Fort Worth Report. <strong>Capacity note, September 2026:</strong> this slide previously totalled the fleet at ~5,800 MW, from a spreadsheet of per-site MW ratings that is not archived in the repository and could not be re-sourced. The site count and their locations are documented; the megawatt totals are withdrawn until the registrations are pulled individually. Independently reported: the Bowie County plant at roughly 446 MW.</p>
     </section>
 
     <!-- ═══════════════ 6 · THE PERMIT ═══════════════ -->
@@ -1336,47 +1336,11 @@
         Parker County Commissioners Court Resolution 26-25. Service-cost figures forthcoming.</p>
     </section>
 
-    <!-- ═══════════════ 10 · WHY PARKER ═══════════════ -->
-    <section class="slide" id="why-parker">
-      <div class="eyebrow">09 · Why Black Mountain chose Parker</div>
-      <h2>The site choice tells the developer's story</h2>
-      <h3 class="subhead">Cheap rural land, light regulation, close to existing infrastructure</h3>
-
-      <p class="lead">Developers pick sites by a simple formula: available land, light regulation, and nearness to power
-        lines. Parker's own rules already make it a hard target — but the region's infrastructure was attractive enough
-        that the company decided the local fight was worth it.</p>
-
-      <div class="twocol bias-left">
-        <div>
-          <figure>
-            <img src="img/F_tx_siting_risk.png" alt="Map: Texas siting-risk surface">
-            <figcaption>Dark red = highest developer attractiveness (land × permissiveness × infrastructure proximity).
-            </figcaption>
-          </figure>
-        </div>
-        <div>
-          <p>The siting-risk index combines:</p>
-          <ul class="bullets" style="font-size:0.95rem">
-            <li>Available rural land (low cropland share)</li>
-            <li>Regulatory permissiveness (GCD, PGMA, moratorium status)</li>
-            <li>Proximity to existing data-center / grid infrastructure</li>
-          </ul>
-          <p><strong>Parker's current rank: 237 of 254 Texas counties.</strong></p>
-          <p>Our regulations and Hill's moratorium have measurably lowered Parker's score. But the regional clustering
-            still made us attractive. The developer's calculation was: <em>worth the local political fight here, versus
-              siting somewhere with less infrastructure.</em></p>
-          <p class="smallcaption">Hill County (after passing the moratorium): rank 191. Hood: rank 245. Hays: rank 252.
-            Without the regulations, Parker would be near the top quartile.</p>
-        </div>
-      </div>
-
-      <p class="source">Index: 0.35·land + 0.35·permissive + 0.30·infrastructure-proximity. See <a
-          href="#sources">Sources &amp; methodology</a>.</p>
-    </section>
+    
 
     <!-- ═══════════════ 11 · OTHER COUNTIES ═══════════════ -->
     <section class="slide" id="other-counties">
-      <div class="eyebrow">10 · What other communities tried</div>
+      <div class="eyebrow">09 · What other communities tried</div>
       <h2>The ledger of what worked, what got reversed, and what got sued</h2>
       <h3 class="subhead">At least 100 local data-center ordinances have been considered in Texas since July 1, 2025. The outcomes are not random.</h3>
 
@@ -1440,7 +1404,7 @@
 
     <!-- ═══════════════ 11b · CHAPTER 391 ═══════════════ -->
     <section class="slide" id="chapter-391">
-      <div class="eyebrow">10b · The 391 question</div>
+      <div class="eyebrow">09b · The 391 question</div>
       <h2>Chapter 391: a table with chairs at it, and a statute that says the state has to sit down</h2>
       <h3 class="subhead">What a sub-regional planning commission actually does — and the two routes in front of this court</h3>
 
@@ -1494,7 +1458,7 @@
 
     <!-- ═══════════════ 12 · WHAT THE COURT CAN DO ═══════════════ -->
     <section class="slide" id="court-can-do">
-      <div class="eyebrow">11 · What this court has done, and what is still open</div>
+      <div class="eyebrow">10 · What this court has done, and what is still open</div>
       <h2>The money lever has already been pulled. The water lever has not.</h2>
       <h3 class="subhead">Revised September 2026 — the June version of this slide asked for something the court has since done</h3>
 
@@ -1556,7 +1520,7 @@
 
     <!-- ═══════════════ 13 · THE ASK ═══════════════ -->
     <section class="slide" id="the-ask">
-      <div class="eyebrow">12 · The ask</div>
+      <div class="eyebrow">11 · The ask</div>
       <h2>Seven actions still open to this court</h2>
       <h3 class="subhead">Revised September 2026 — the asks that mattered in June have been adopted. These are what is left.</h3>
 
@@ -1709,7 +1673,7 @@
 
     <!-- ═══════════════ 14 · SEE FOR YOURSELF ═══════════════ -->
     <section class="slide" id="interactive-map">
-      <div class="eyebrow">13 · See for yourself</div>
+      <div class="eyebrow">12 · See for yourself</div>
       <h2>Don't take my word for it — check the map</h2>
       <h3 class="subhead">Every county, every layer, every source</h3>
 
@@ -1753,7 +1717,7 @@
 
     <!-- ═══════════════ 15 · SOURCES & METHODOLOGY ═══════════════ -->
     <section class="slide" id="sources">
-      <div class="eyebrow">14 · Sources &amp; methodology</div>
+      <div class="eyebrow">13 · Sources &amp; methodology</div>
       <h2>Every number traces to a public record</h2>
       <h3 class="subhead">If a source is wrong or the math is off, it gets corrected with a dated note</h3>
 
@@ -1780,7 +1744,7 @@
               <code>tec_black_mountain_contributions.csv</code>. First $500,000 also confirmed by Texas Tribune
               (Jan 15, 2026).</li>
             <li><strong>Fort Worth Report / KERA News</strong> — political-contribution records; $10B FW campus stall;
-              Fort Worth City Council Jun 23 vote</li>
+              Fort Worth City Council — the June 23 vote was delayed; the 187-acre site plan was approved 7–4 on August 25, 2026</li>
             <li><strong>TCEQ turbine permit list</strong> — 14 FWPC registrations, archived as
               <code>parker_costs/fwpc_sites.csv</code>. <em>Correction, Sept 2026:</em> the spreadsheet of MW ratings
               this slide previously cited is not archived in the repository and its Parker figure could not be
@@ -1811,8 +1775,21 @@
             amount cannot be recovered by raising rates later — it is treated as a permanent reduction in local fiscal
             capacity, not as a per-resident charge. The separate question of the costs the project imposes on the
             existing budget is being quantified and is not included in the figures above.</p>
-          <p style="font-size:0.92rem">The siting-risk index is a weighted composite: 0.35·land + 0.35·permissive +
-            0.30·infrastructure proximity, normalized to [0,1] across 254 counties.</p>
+          <p style="font-size:0.92rem"><strong>Retracted September 2026 — the siting-risk section.</strong> A slide
+            titled "Why Black Mountain chose Parker" ranked all 254 Texas counties on a developer-attractiveness index
+            (0.35·land + 0.35·permissive + 0.30·infrastructure proximity). It has been removed rather than updated, for
+            three reasons found on re-running it. Two of the four ranks it published could not be reproduced from the
+            archived output — it showed Parker 237 and Hill 191 where the data give 235 and 240. The index also
+            saturates: <code>permissive = (1 − 0.5·gcd_funding) × …</code> was written for a 0/1 input, but
+            <code>gcd_funding</code> is coded 0/1/2, so <strong>15 of 254 counties</strong> score exactly zero on
+            permissiveness and every other regulatory input becomes irrelevant to them — which is why removing Hill
+            County's rescinded moratorium changed its score by nothing at all. And the slide's causal claim was wrong
+            in principle: moratorium status is a per-county input, so Hill's moratorium never affected Parker's score,
+            and Parker's own low ranking comes from its groundwater district and PGMA designation — neither of which
+            the county adopted. The re-run is archived at <code>profile_2026_09/RCO_siting_risk_2026-09.R</code> and
+            <code>siting_risk_2026-09.csv</code>. The section is preserved as published in the June archive. A claim
+            about why a developer chose a site was always an inference about intent, and this briefing no longer
+            presents inferences as findings.</p>
           <p style="font-size:0.92rem; margin-top:1rem"><strong>Full code, data, and reproducibility:</strong><br>
             <a
               href="https://github.com/Parker-Data-Pro-Populo/data-center-surface-datarun">github.com/Parker-Data-Pro-Populo/data-center-surface-datarun</a>
@@ -1829,7 +1806,7 @@
 
     <!-- ═══════════════ 16 · QUESTIONS + WHAT YOU CAN DO ═══════════════ -->
     <section class="slide" id="questions">
-      <div class="eyebrow">15 · Questions &amp; what you can do</div>
+      <div class="eyebrow">14 · Questions &amp; what you can do</div>
       <h2>Questions — and how to help</h2>
 
       <div class="twocol">
@@ -1889,7 +1866,7 @@
         </div>
       </div>
 
-      <p class="source">Thank you. Black Mountain · Parker County · June 9, 2026.</p>
+      <p class="source">Thank you. Black Mountain · Parker County · prepared June 9, 2026 · revised September 2026.</p>
     </section>
 
   </main>

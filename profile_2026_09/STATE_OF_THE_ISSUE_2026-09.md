@@ -532,3 +532,49 @@ square-footage, one a self-reported broken power agreement. Non-compliant facili
 waived tax. Two-year cost estimated at **$3.2 billion** (2025); the chief revenue estimator says the
 next estimate will be significantly higher. Sources: Texas Tribune 2026-07-27; Senate Finance
 testimony (Jenny Burleson, Tax Policy Division; Brad Reynolds, chief revenue estimator).
+
+
+## Audit of the un-rebuilt sections, 2026-09-03
+
+Sections 00-05, 09 and 13-15 were never rebuilt in the September pass. Audited against the new
+baseline after section 08 turned out to still assume the abatement. Six findings; five fixed,
+one section retired.
+
+**Fixed**
+1. **04** attributed the 75 MW to the permit — "Parker County x1 — 75 MW" sat directly above the
+   quoted phrase "(TCEQ permit language)". Now "~75 MW *per testimony, not the permit*".
+2. **04** headlined the fleet at "14 sites · ~5,800 MW" (Tier A ~261 MW, Tier B ~5,500 MW) from
+   the same unarchived spreadsheet section 14 already disowns. Only 4 of 14 sites carry any
+   capacity annotation in `fwpc_sites.csv`, so the totals were never reproducible. **Withdrawn**;
+   site count and locations kept; the one independently reported figure (Bowie ~446 MW) noted.
+3. **14** still cited the "Fort Worth City Council Jun 23 vote" — the vote that was *delayed*.
+   Now records the 7-4 approval of 2026-08-25.
+4. **01** said all 18 parcels were "owned by Black Mountain Power LLC". The certified roll still
+   carries most under DTB Investments; notices were issued *to* Black Mountain Power. Corrected,
+   with the ownership lag and the 19th unnoticed parcel noted.
+5. **15** closed with a bare "June 9, 2026". Now "prepared June 9, 2026 · revised September 2026".
+
+**Retired — section 09, "Why Black Mountain chose Parker"**
+Re-run at the user's direction; the re-run is archived at `RCO_siting_risk_2026-09.R` /
+`siting_risk_2026-09.csv` (model untouched, only the moratorium input made current: Hill out after
+its May 2026 rescission, Austin County in from July 2026; Tom Green abandoned, Hood and Hays never
+adopted, San Marcos municipal and so not a county input). Three defects surfaced:
+
+- **Two of four published ranks are not reproducible.** The slide said Parker 237 and Hill 191;
+  the archived output gives **235** and **240**. Hood (245) and Hays (252) match.
+- **The index saturates.** `permissive = (1 - 0.5*gcd_funding) * (1 - 0.5*pgma) * (1 - 0.5*moratorium)`
+  was written for a 0/1 input, but `gcd_funding` is coded **0/1/2**. At 2 the first term is zero, so
+  **15 of 254 counties** score exactly 0 on permissiveness and every other regulatory input becomes
+  irrelevant. Hill is one of them — which is why removing its moratorium moved its score by nothing.
+- **The causal claim was wrong in principle.** Moratorium status is a per-county input, so Hill's
+  moratorium never touched Parker's score; and Parker's own low rank comes from its GCD and PGMA
+  designation, neither adopted by the county. "Our regulations lowered our score" credited the court
+  with something it did not do.
+
+Retired rather than repaired: fixing the formula is defensible work but produces a better version of
+the weakest section, and a claim about why a developer chose a site is an inference about intent —
+the evidence class this rebuild has been demoting everywhere else. The retraction, with all three
+reasons, is on the Sources & methodology slide. The section survives as published in the June
+archive. Display numbering closed the gap (10->09 through 15->14); section ids are unchanged, so
+existing deep links still resolve. `slides/img/F_tx_siting_risk.png` is now unreferenced by the live
+deck and retained only for the archive's copy.
