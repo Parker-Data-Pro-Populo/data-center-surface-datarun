@@ -10,6 +10,8 @@ henrylee.vote build can restore them without anyone rewriting from memory.
 |---|---|
 | `00_what_we_face.campaign.html` | §00, now *Purpose of this briefing* |
 | `14_questions.campaign.html` | §14, now *Questions and participation* |
+| `STATEMENT.campaign.html` | `../../STATEMENT.html`, now *Standards, methods, and disclosures* |
+| `STATEMENT.campaign.md` | `../../STATEMENT.md`, same |
 
 Chart G is not stored here — `../regen_chart_G_2026-09.R` builds either voice from
 `RCO_VOICE=neutral` (default) or `RCO_VOICE=campaign`.

@@ -1,155 +1,161 @@
-# A statement of position
+# Standards, methods, and disclosures
 
-*Henry Lee Butler · June 2, 2026*
+*How this research is made, checked, and corrected — revised September 7, 2026*
 
-## What this project is — and is not
+## What this publication is
 
-This project is not anti-data-center.
+This is citizen research: analysis built from public records, published together with the records,
+the code and the methodology, so that any reader can check the work or redo it differently and
+reach their own conclusion.
 
-It is against **dark government** — public decisions made out of public view.
+The current subject is a data-center and power-generation development near FM 730 and Pearson Ranch
+Road in Parker County, and the statewide network of gas-plant registrations held by the same
+operator.
 
-It is against **the absence of transparency** — public records that exist but are
-not made accessible, public processes that are shortcut, public officials who
-act on the public's behalf without informing the public.
+> **This publication has a position on process. It has no position on data centers.**
 
-It is against **undue corporate influence in matters that affect citizens** —
-when the public interest is set aside because a private interest has more
-political weight, more lawyers, or more time.
+That distinction does most of the work here, and it is easy to lose, so it is set out explicitly
+below rather than left to be inferred.
 
-It is against the **anti-democratic activities of elected and monied
-interests** — the routine accumulation of small bypasses, fast-tracked
-permits, sealed agreements, executive sessions, threats of litigation
-against local governments that try to listen to their constituents.
+### What it takes a position on
 
-Data centers happen to fall under all of this right now in Texas because
-the political and regulatory machinery around them has tilted, in real and
-documentable ways, against the people who live near them. That is the
-narrow case the published deck makes.
+- Public records should be *practically* accessible, not merely technically public.
+- Decisions of consequence should be reviewable before they become irreversible.
+- Where a capacity figure, a permit file or a resource allocation does not appear on any public
+  surface, that absence is itself a finding and should be reported as one.
+- A community should be able to read the terms before it is bound by them.
 
-The broader case is that the same patterns repeat — solar farms, pipelines,
-gravel pits, freight rail, water transfers, cell towers, eminent-domain
-takings. What this project is for is **citizens having the same access to
-the data and the analysis as the people on the other side of the table
-have always had.**
+### What it takes no position on
 
-If a 2,075-acre industrial assembly with a 75-megawatt fast-tracked air
-permit, no public notice, and an implied gigawatt-scale buildout is brought
-to a community after the fact — that is the dark-government problem, not
-the data-center problem.
+- Whether data centers are good or bad — in general, in Texas, or here.
+- Whether this project should be built.
+- Whether any official or company has acted improperly. Where filings, dates and amounts are
+  reported, they are reported as filings, dates and amounts, and the briefing says so at the point
+  of contact.
+- Any candidate, party or election. See the disclosure below.
 
-If a public meeting confirms that a state senator threatens litigation
-against a county for considering a moratorium — that is the
-anti-democratic-activities problem, not the developer problem.
+A community that wants a data center, with its eyes open, should be free to have one. A community
+that does not should be free not to. The argument made here is narrower than either: that the
+choice should be made with the facts in hand, and that at present several of them are missing.
 
-If a corporate group operates fourteen sites across eleven Texas counties
-under entity names designed to obscure the common operator — that is the
-transparency problem, not the gas-turbine problem.
+## The evidence standard
 
-A community that wants a data center, with eyes open, should be free to
-have one. A community that does not, should be free not to have one.
-What is not acceptable is for the choice to be made for them, in silence,
-by people they did not elect.
+Every claim in the briefing carries one of four labels, used in the headings, the captions and the
+scenario grid:
 
-## About the use of AI in this work
+- **Documented** — in an official filing, adopted resolution, agency record or appraisal notice.
+- **Testimony** — said on the record in a public meeting, but not yet confirmed in a filed
+  technical document.
+- **Scenario** — an illustrative calculation from stated assumptions. Not a prediction, and not a
+  forecast of what any party will do.
+- **Open question** — information that appears on no public surface and should be requested before
+  decisions are made.
 
-The data assembly, statistical models, cartographic rendering, and much of
-the writing supporting this project were produced with the assistance of
-Anthropic's Claude. This is disclosed openly, both here and on the
-landing page of the publication.
+Two rules follow, and they are worth stating because they are routinely confused with each other:
 
-There is a category of objection that says: *it is hypocritical to use AI
-to research a story about the consequences of AI buildout.* I disagree
-with that framing, and I want to be explicit about why.
+- **A documented fact is stated flat, without hedging.** Softening a fact that can be checked
+  understates the record, and a reader who goes and checks will find that it was understated. That
+  costs more trust than plain statement ever does.
+- **An inference is labelled as an inference** and hedged accordingly. It is never quietly promoted
+  to a fact because the promotion would be convenient.
 
-**Tools are not the thing.** A hammer is not a house. A spreadsheet is
-not a forensic accounting. A neural network is not a research project. In
-each case the tool is necessary, sometimes uniquely capable, and never
-sufficient. What matters is whether the human directing the tool has the
-discipline and the judgment to use it for something the public should want
-to exist.
+This publication does not infer motive from campaign contributions, corporate structure, property
+ownership or permit timing. Where the record is incomplete, it names the missing document and the
+body that can produce it.
 
-**This project's use of AI is in the category of citizen research.**
-That means: parsing 18 PDFs of tax notices, joining 254 county polygons
-to 101 groundwater-district boundaries, querying public databases by their
-documented APIs, running a cost model whose formulas are traceable in
-published source code, drafting narrative passages that are then verified
-against the cited sources line by line. Every numerical claim in the deck
-is reproducible from source code in the repository. A human reviewed
-every output before publication. Where AI assisted in writing, the writing
-is verifiable against primary sources cited in the same paragraph.
+## Corrections
 
-**This project's use of AI is not in any of these categories:** fabricating
-quotes; inventing statistics; generating content represented as primary
-research that has not been verified; producing legal opinion masquerading
-as analysis; identifying individuals not already on the public record;
-making aesthetic or political judgments masquerading as factual claims.
-Every quote from a public official traces to a published meeting record or
-a public document. Every numerical claim traces to a public-records source
-listed in the methodology.
+The willingness to correct is the price of being trusted, and it is worth more when the corrections
+are visible than when they are quiet. Errors are fixed in place, dated, and described — not
+deleted. Superseded versions stay online.
 
-**Disliking artificial intelligence because of how some people misuse it
-is a category error.** The same critique would have applied to typewriters
-in 1880, to copy machines in 1960, to spreadsheets in 1985, and to the
-World Wide Web in 1995. Tools change what an individual citizen can do
-on their own. Some uses of any new tool are abusive, fraudulent, or lazy.
-That is not an argument against the tool. It is an argument for paying
-attention to the use.
+The record so far, all of it public:
 
-If anything, the asymmetry of who has access to powerful analytical tools
-is itself a public-interest concern. Large corporations have had teams of
-analysts, lawyers, and lobbyists for as long as those professions have
-existed. An individual citizen working in their living room with a public
-internet connection and an AI assistant can, today, produce a documented
-public-interest analysis that would have been impossible for a private
-citizen to assemble five years ago. The democratic implication of that is
-substantial, and on balance favorable.
+- **The June 2026 briefing was substantially wrong about cost, and is preserved unchanged.** Its
+  headline figures assumed an 80% Chapter 312 abatement. Parker County then adopted Resolution
+  26-25, declining abatements for data centers — so the briefing was describing a scenario the
+  county had formally refused. It was rebuilt around a scenario grid. The original is still
+  published, with its original numbers, at `archive/2026-06/`, so anyone who read it, cited it or
+  argued against it can see exactly what it said.
+- **An entire section was retracted.** A siting-risk index published in June was re-run in
+  September and found to be defective: the score saturated for fifteen counties, and two of the
+  published ranks could not be reproduced. The section was withdrawn and the retraction published
+  in its place rather than the section being silently removed.
+- **The site acreage was corrected** from 2,075.28 to about 2,081, after a nineteenth adjacent
+  parcel of 6.53 acres — bought from the same seller, but never issued a corrected notice — was
+  traced in the appraisal records.
+- **A rollback-tax figure was corrected** from five years to three, following the 2019 amendment of
+  Tax Code §23.55 by HB 1743.
+- **A published map was upside down for three months.** An argument-order bug in the plotting code
+  mirrored the basemap vertically behind correctly drawn county boundaries. It was fixed, the chart
+  regenerated, and the cause written into the source file.
 
-The skill is in the user. The discipline is in the methodology. The
-accountability is in publishing everything — code, data, methodology,
-and sources — so that anyone can check the work.
+If a figure here is wrong, the correction is wanted more than the appearance of having been right.
+Corrections and challenges: henry.lee@henrylee.vote.
+
+## Disclosures
+
+### Who produces this
+
+This research is produced by **Henry Lee Butler**, working independently. There is no commercial
+affiliation, no client, no sponsor, and no funding from any party with an interest in the outcome —
+no developer, no landowner, no utility, no trade association, and no opposing group.
+
+**Political activity.** The author also publishes at henrylee.vote, which is an explicitly political
+site [[ STATE THE OFFICE AND RACE HERE, or delete this paragraph ]]. That work and this research are
+kept on separate domains on purpose, and the separation is a real one: the version of this briefing
+published there argues a case, and this version does not. Both are built from the same data, the
+same code and the same repository, and neither is permitted to carry a figure the other does not.
+
+### The use of AI
+
+The data assembly, statistical models, cartographic rendering and much of the drafting were produced
+with the assistance of Anthropic's Claude. That is disclosed here, on the landing page, and in the
+repository.
+
+**What that means in practice:** parsing eighteen PDFs of tax notices; joining 254 county polygons
+to 101 groundwater-district boundaries; querying public databases through their documented
+interfaces; running a cost model whose formulas are traceable in published source code; drafting
+narrative passages that are then checked against the cited sources line by line.
+
+**What it does not mean.** No quote is generated; every quotation from a public official traces to a
+published meeting record or a filed document. No statistic is invented; every numerical claim is
+reproducible from source code in the repository. Nothing is represented as primary research that has
+not been verified against a primary source. No legal opinion is offered. No individual is identified
+who is not already on the public record.
+
+A human reviewed every output before publication and is responsible for all of it, including the
+errors listed above. The tool does not dilute that responsibility, and citing it would not be an
+excuse.
 
 ## What citizen research looks like, done well
 
-- **Source every factual claim.** If a claim cannot be traced to a public
-  record, it does not get made.
-- **Publish the underlying data.** Other people may want to verify, or to
-  extend, or to disagree. None of those is possible if the data is hidden.
-- **Publish the methodology.** Anyone reading should be able to reproduce
-  any number in the publication from the published code and data.
-- **Disclose your tools.** What software you used, what AI assistance you
-  used, what databases you queried. Tools are not the work, but hiding
-  them is bad practice.
-- **Invite correction.** Wrong facts should be corrected, with a dated
-  note. The willingness to correct is the price of being trusted.
-- **Do not hide behind credentials.** This is citizen work. The
-  alternative — that only credentialed experts may produce analysis of
-  public records — is its own form of dark government.
-- **Do not assert things that cannot be backed up.** If a claim is
-  inference, label it as inference. If a claim is opinion, label it as
-  opinion. If a claim is a quote from a primary source, cite the source.
+- **Source every factual claim.** If a claim cannot be traced to a public record, it does not get made.
+- **Publish the underlying data.** Other people may want to verify, or extend, or disagree. None of
+  those is possible if the data is held back.
+- **Publish the methodology.** Any reader should be able to reproduce any number from the published
+  code and data.
+- **Disclose your tools.** What software, what AI assistance, what databases. Tools are not the
+  work, but concealing them is bad practice.
+- **Invite correction.** Wrong facts get corrected with a dated note, in public.
+- **Do not hide behind credentials.** This is citizen work. The alternative — that only credentialed
+  experts may analyse public records — is its own kind of closed door.
+- **Label the difference between fact, inference and opinion,** and never let one drift into another.
+- **State the other side's best case, not its worst.** A brief that only assembles one side should be
+  read with suspicion, including by the person who wrote it.
 
-## Why this matters
+## Challenging this work
 
-Democracy is not a set of institutions. It is a set of practices. Among
-those practices, one of the most important and most fragile is the routine
-exercise, by ordinary citizens, of the right to read the public record and
-draw their own conclusions from it.
+Disagreement is welcome and is easier here than in most places, because the inputs are published.
+The most useful challenge names a specific figure, points to the record that contradicts it, and
+says what the corrected number should be. That kind of challenge gets a correction and a dated note.
 
-That right is not in any immediate danger. But it is being constricted in
-ways that are easy to miss: through processes that are technically public
-but practically inaccessible, through permits that are technically subject
-to comment but published without notice, through agreements that are
-technically signed by elected officials but negotiated by parties the
-public never sees.
-
-The remedy is patient, sourced, documented work, made available to whoever
-wants to look. That is what this project is. That is the standard it
-tries to hold itself to. And that is the standard it would invite anyone
-challenging its findings to meet in return.
+The standard this publication tries to hold — and the one it would ask of anyone contesting its
+findings — is that every claim should survive a hostile reading by someone who has the underlying
+documents.
 
 ---
 
-*This statement may be cited, quoted, or republished freely with attribution.
-The source code, data, and methodology supporting the project are at
-**[github.com/Parker-Data-Pro-Populo/data-center-surface-datarun](https://github.com/Parker-Data-Pro-Populo/data-center-surface-datarun)**.
-Corrections and questions: henry.lee@henrylee.vote.*
+This statement may be cited, quoted or republished freely with attribution. The source code, data
+and methodology are at github.com/Parker-Data-Pro-Populo/data-center-surface-datarun.
+Corrections and questions: henry.lee@henrylee.vote.
