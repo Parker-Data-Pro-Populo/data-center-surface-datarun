@@ -642,6 +642,9 @@
         break-before: page;
       }
       section.slide#top { break-before: auto; }
+      /* The reader guide closes the cover section; letting §00 flow on behind it
+         keeps that card from sitting alone on an otherwise empty page. */
+      section.slide#what-we-face { break-before: auto; padding-top: 0.25in; }
 
       h1 { font-size: 21pt; }
       h2 { font-size: 15.5pt; }
