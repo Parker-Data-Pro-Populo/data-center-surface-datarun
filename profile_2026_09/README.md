@@ -14,7 +14,7 @@ touches it. Two ways to get back to it:
 - `git checkout main` — same content, since this revision lives only on `revision-2026-09`.
 
 The revision does not delete the June figures. The $364 million appears in the rebuilt deck as one
-labelled cell of the scenario grid — the cell where "1 GW, acreage-implied" meets "80% Chapter 312" —
+labeled cell of the scenario grid — the cell where "1 GW, acreage-implied" meets "80% Chapter 312" —
 so a reader can see what was claimed, what it rested on, and why it is no longer the headline.
 
 ## Why the revision exists
@@ -51,7 +51,7 @@ TEC bulk export loaded into a local Postgres database (`tec_finance` schema, `co
 
 1. The permitted capacity of the Parker plant is not on any public surface. TCEQ's Central Registry
    entry for Registration 179422 has no capacity; the Central File Room returns no documents. The
-   75 MW figure is testimony, and is labelled as such. A records request to TCEQ Air Permitting is
+   75 MW figure is testimony, and is labeled as such. A records request to TCEQ Air Permitting is
    the fix.
 2. The site-specific groundwater ceiling needs the Trinity thickness at the tract, from the
    district's Tract Size Requirements Map or its newly commissioned local flow model.

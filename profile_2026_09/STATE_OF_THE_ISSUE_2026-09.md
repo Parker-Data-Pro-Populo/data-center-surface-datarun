@@ -236,7 +236,7 @@ inference).
   interconnected after 2025-12-31.
 
 ### 4.3 Revised Buildout
-- Drop "1 GW implied at 2,075-acre scale" as a headline. Keep it, if at all, as one labelled
+- Drop "1 GW implied at 2,075-acre scale" as a headline. Keep it, if at all, as one labeled
   scenario among several, with the acreage-inference method shown.
 - Better anchors now available: the developer's **own** Fort Worth project — $10B, 187-acre
   site plan, four buildings at 68 ft, 2.2M sq ft enclosed, approved 7–4 on 2026-08-25 — is a
@@ -368,7 +368,7 @@ this Commissioners Court now cites the work behind it — 234 county filings for
 
 
 ### Water, counted whole — added 2026-09-01
-The first pass modelled only makeup water at the data hall, which is the framing that lets a
+The first pass modeled only makeup water at the data hall, which is the framing that lets a
 closed-loop project be called water-neutral. Corrected: total water = **direct** (cooling makeup,
 charged on IT load) + **indirect** (water consumed generating the power, charged on IT load x PUE).
 Closed-loop rejection is less efficient, so PUE rises and the indirect term grows exactly as the

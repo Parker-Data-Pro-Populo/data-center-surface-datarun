@@ -56,7 +56,7 @@ Two rules follow, and they are worth stating because they are routinely confused
 - **A documented fact is stated flat, without hedging.** Softening a fact that can be checked
   understates the record, and a reader who goes and checks will find that it was understated. That
   costs more trust than plain statement ever does.
-- **An inference is labelled as an inference** and hedged accordingly. It is never quietly promoted
+- **An inference is labeled as an inference** and hedged accordingly. It is never quietly promoted
   to a fact because the promotion would be convenient.
 
 This publication does not infer motive from campaign contributions, corporate structure, property
@@ -101,11 +101,17 @@ This research is produced by **Henry Lee Butler**, working independently. There 
 affiliation, no client, no sponsor, and no funding from any party with an interest in the outcome —
 no developer, no landowner, no utility, no trade association, and no opposing group.
 
-**Political activity.** The author also publishes at henrylee.vote, which is an explicitly political
-site [[ STATE THE OFFICE AND RACE HERE, or delete this paragraph ]]. That work and this research are
-kept on separate domains on purpose, and the separation is a real one: the version of this briefing
-published there argues a case, and this version does not. Both are built from the same data, the
-same code and the same repository, and neither is permitted to carry a figure the other does not.
+**Political activity.** The author is a candidate for **Parker County Commissioner, Precinct 2**,
+running as a Democrat, and publishes campaign material at henrylee.vote. That is stated here rather
+than left to be discovered, because a reader is entitled to know it before deciding how much weight
+to give anything on this page.
+
+What follows from it, concretely. The campaign version of this briefing argues a case; this version
+does not, and the two are kept on separate domains for exactly that reason. Both are built from the
+same repository, the same data and the same code. **Neither is permitted to carry a figure the other
+does not** — where they differ, they differ in voice, never in a number, a date, a citation or a
+source line. Both versions are in the public repository, so that commitment can be checked by anyone
+who cares to compare them.
 
 ### The use of AI
 
@@ -139,7 +145,7 @@ excuse.
   work, but concealing them is bad practice.
 - **Invite correction.** Wrong facts get corrected with a dated note, in public.
 - **Do not hide behind credentials.** This is citizen work. The alternative — that only credentialed
-  experts may analyse public records — is its own kind of closed door.
+  experts may analyze public records — is its own kind of closed door.
 - **Label the difference between fact, inference and opinion,** and never let one drift into another.
 - **State the other side's best case, not its worst.** A brief that only assembles one side should be
   read with suspicion, including by the person who wrote it.
