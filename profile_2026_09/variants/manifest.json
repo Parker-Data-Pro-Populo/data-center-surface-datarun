@@ -1,0 +1,59 @@
+{
+  "_comment": [
+    "Drives scripts/build_surfaces.py. The NEUTRAL files are canonical and are never",
+    "written by the build; campaign surfaces are generated from them plus the variants",
+    "listed here. Adding a variant means adding an entry here, not editing the script."
+  ],
+  "surfaces": [
+    {
+      "name": "briefing deck",
+      "source": "slides/index.html",
+      "output": "slides/campaign.html",
+      "sections": {
+        "what-we-face": "00_what_we_face.campaign.html",
+        "questions": "14_questions.campaign.html"
+      },
+      "image_swaps": {
+        "img/G_fwpc_network.png": "img/G_fwpc_network_campaign.png"
+      },
+      "canonical_url": "index.html"
+    },
+    {
+      "name": "position statement",
+      "source": "STATEMENT.html",
+      "output": "STATEMENT_campaign.html",
+      "whole_file": "STATEMENT.campaign.html",
+      "canonical_url": "STATEMENT.html",
+      "shared_blocks": {
+        "corrections": "_shared_corrections.html"
+      },
+      "fact_exceptions": {
+        "September 7": "Dateline. The reporting statement was rewritten 2026-09-07.",
+        "June 2": "Dateline. The campaign statement is the original of 2026-06-02.",
+        "2": "Falls out of the 'June 2' dateline.",
+        "730": "FM 730, a road name in the reporting statement's scope paragraph. Not a quantity.",
+        "18": "'18 PDFs of tax notices', an example in the campaign statement's AI disclosure. Same 18 parcels the deck carries on both surfaces.",
+        "75": "'75-megawatt' in the campaign statement's pull-quote. The deck labels that figure as testimony on both surfaces; the reporting statement does not repeat it.",
+        "1880": "Typewriters, in the analogy about objections to new tools. Not a project figure.",
+        "1960": "Copy machines, same analogy.",
+        "1985": "Spreadsheets, same analogy.",
+        "1995": "The World Wide Web, same analogy."
+      }
+    }
+  ],
+  "_exceptions_doc": [
+    "Figures allowed to appear in one surface and not the other. Every entry needs a",
+    "reason, and the reason has to be that the figure is rhetorical or incidental -",
+    "never that the two surfaces disagree about the project. If a PROJECT figure ever",
+    "needs an exception, the right fix is to correct a surface, not to add an entry.",
+    "The deck carries none, and should not acquire any."
+  ],
+  "fact_exceptions": [],
+  "_shared_blocks_doc": [
+    "A shared block is content that MUST be identical on both surfaces because it is",
+    "a matter of record rather than of voice - the corrections log above all. The",
+    "fragment is injected into the campaign output at <!-- SHARED:<name> --> and the",
+    "check asserts the same text is present in the neutral source, so neither copy",
+    "can drift."
+  ]
+}
