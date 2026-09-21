@@ -31,3 +31,6 @@ ehthumbs.db
 # The 18 BM tax-statement PDFs are public records — kept tracked.
 # The TCEQ + Comptroller cached HTML/JSON are public — kept tracked.
 # The R output CSVs are derived data — kept tracked for reproducibility.
+
+# Pre-publication review renders — never commit these to the public repo.
+*_REVIEW*.pdf

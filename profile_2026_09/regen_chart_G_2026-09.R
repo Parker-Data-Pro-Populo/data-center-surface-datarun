@@ -29,6 +29,15 @@ GEO_DIR <- Sys.getenv("RCO_GEO", unset = file.path(
 SHP     <- file.path(GEO_DIR, "cb_2023_us_county_20m.shp")
 stopifnot(file.exists(SHP))
 
+# VOICE. The neutral build is the default and is what both published surfaces use.
+# RCO_VOICE=campaign restores the organizing annotation for henrylee.vote only.
+VOICE <- Sys.getenv("RCO_VOICE", unset = "neutral")
+stopifnot(VOICE %in% c("neutral", "campaign"))
+SUBTITLE <- if (VOICE == "campaign")
+  "One operator, 11 counties, 14 sites. Parker is one of fourteen. Hill \u00b7 Hood \u00b7 Hays \u2014 conspicuously absent." else
+  "One operator, 11 counties, 14 sites. Parker is one of fourteen. Peer counties Hill, Hood and Hays hold none."
+OUT_SUFFIX <- if (VOICE == "campaign") "_campaign" else ""
+
 Sys.setenv(RCO_BASEMAP = file.path(REPO, "scripts", "basemap_carto_voyager_tx.png"))
 source(file.path(REPO, "scripts", "viz_style.R"))
 
@@ -55,14 +64,14 @@ storied <- data.table(
   color = c(rep(PAL$title, 11), rep(PAL$peer, 4))
 )
 
-OUT <- file.path(REPO, "slides", "img", "G_fwpc_network.png")
+OUT <- file.path(REPO, "slides", "img", sprintf("G_fwpc_network%s.png", OUT_SUFFIX))
 png(OUT, width = 2200, height = 1900, res = 180)
 
 init_tx_map(
   title    = "Fort Worth Power Core LLC — 14-site statewide gas-plant network",
-  subtitle = "One operator, 11 counties, 14 sites. Parker is one of fourteen. Hill · Hood · Hays — conspicuously absent.",
+  subtitle = SUBTITLE,
   source_text = paste("Source: TCEQ Central Registry (Customer CN606278281), TX Comptroller franchise tax,",
-                      "pulled 2026-06-01. Basemap: CARTO Voyager. Chart regenerated 2026-09-03."),
+                      "pulled 2026-06-01. Basemap: CARTO Voyager. Chart regenerated 2026-09-07."),
   basemap_alpha = 0.32
 )
 draw_unlit(m, alpha = 0.18)
@@ -83,10 +92,12 @@ draw_legend(list(
   density= c(NA, NA, NA),
   angle  = c(NA, NA, NA)
 ))
-usr <- par("usr")
-halo_text(usr[1] + 0.62 * diff(usr[1:2]),
-          usr[3] + 0.04 * diff(usr[3:4]),
-          "Williamson (Jonah TX) — highest-leverage organizing target",
-          cex = 0.92, font = 2, col = PAL$fwpc, halo_w = 1.5)
+if (VOICE == "campaign") {
+  usr <- par("usr")
+  halo_text(usr[1] + 0.62 * diff(usr[1:2]),
+            usr[3] + 0.04 * diff(usr[3:4]),
+            "Williamson (Jonah TX) — highest-leverage organizing target",
+            cex = 0.92, font = 2, col = PAL$fwpc, halo_w = 1.5)
+}
 dev.off()
 cat("Wrote", OUT, "\n")

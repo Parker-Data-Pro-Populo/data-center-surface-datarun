@@ -70,7 +70,7 @@ appraisal district stripped the agricultural exemption on May 15 total 2,075.28.
 
 **The source.** The May 2026 corrected notices for the 18; Parker CAD's certified roll for the
 19th — parcel R000127494, 6.53 acres, bought from the same seller, sequential in the same block,
-geocoded identically to its neighbour, and never issued a notice.
+geocoded identically to its neighbor, and never issued a notice.
 
 **The limit.** We have no deed for that 19th parcel. Same seller, adjacent, sequential is strong but
 circumstantial. If someone runs title and it isn't part of the transaction, the number is 2,075.28.
@@ -240,7 +240,7 @@ comes back at you, the answer is "we withdrew that, and here's why."
 
 | Retired claim | Why |
 |---|---|
-| "$364 million" as a forecast | A scenario × an abatement the county has since refused. Survives only as one labelled cell in the grid. |
+| "$364 million" as a forecast | A scenario × an abatement the county has since refused. Survives only as one labeled cell in the grid. |
 | "$30 million, Phase 1" | Same. |
 | Per-family or per-household dollar figures | Dividing a scenario by 46,404 households produced something that read like a bill. |
 | "75 MW, TCEQ-permitted" | It's testimony, not a permit term. |

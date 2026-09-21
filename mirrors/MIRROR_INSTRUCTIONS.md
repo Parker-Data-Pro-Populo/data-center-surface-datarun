@@ -14,7 +14,7 @@ They are recoverable from git history if ever needed.
 | The briefing deck | `https://parker-data-pro-populo.github.io/data-center-surface-datarun/slides/` |
 | **The June 2026 version, archived** | `https://parker-data-pro-populo.github.io/data-center-surface-datarun/archive/2026-06/` |
 | Interactive map | `https://parker-data-pro-populo.github.io/data-center-surface-datarun/viz/tx_rco_interactive.html` |
-| Position statement | `https://parker-data-pro-populo.github.io/data-center-surface-datarun/STATEMENT.html` |
+| Standards, methods &amp; disclosures | `https://parker-data-pro-populo.github.io/data-center-surface-datarun/STATEMENT.html` |
 
 The archive URL is stable and safe to link from either domain. The page carries a banner
 explaining that it is superseded and links back to the current briefing, so a visitor who
