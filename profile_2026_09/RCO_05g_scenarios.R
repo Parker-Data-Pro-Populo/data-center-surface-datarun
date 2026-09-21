@@ -281,6 +281,14 @@ THICK <- c(50, 120, 250, 500)                       # ft of Trinity section
 ALLOC <- pmin(pmax(500 * THICK, 25000), 250000)     # gal/acre/yr after floor + cap
 ceiling_mgal <- BM_ACRES_ASSEMBLY * ALLOC / 1e6
 
+# ── What the company has actually asked the district for ──────────────────
+# September 2026: Black Mountain notified UTGCD of its intent to apply for
+# 138,000,000 gal/yr. Notice of intent, not a filed application — no capacity,
+# cooling design or well plan accompanies it. Drawn on both panels because it
+# is the one figure that constrains supply and demand at the same time.
+REQUEST_MGAL <- 138
+REQUEST_THICK_FT <- REQUEST_MGAL * 1e6 / BM_ACRES_ASSEMBLY / 500   # ~133 ft
+
 # ── TOTAL-SYSTEM water, not just the cooling tower ─────────────────────────
 # A closed-loop design moves water off the site; it does not remove it from the
 # system. Two things have to be counted together:
@@ -329,7 +337,7 @@ fwrite(cfg, "water_system_configs.csv")
 
 png("water_ceiling_C.png", width = 2500, height = 1250, res = 170)
 layout(matrix(1:2, nrow = 1), widths = c(0.85, 1.15))
-par(oma = c(7.2, 1, 4.4, 1), family = "sans")
+par(oma = c(9.6, 1, 4.4, 1), family = "sans")
 ymax <- max(c(ceiling_mgal, cfg$total, cfg$dir_hi_m)) * 1.14
 
 # LEFT — what the tract may legally produce
@@ -345,8 +353,17 @@ text(bp, ceiling_mgal, sprintf("%.0f", ceiling_mgal), pos = 3, cex = 0.76, font 
 abline(h = 25, lty = 3, col = PAL$peer, lwd = 1.6)
 text(mean(bp), ymax * 0.92, "25 Mgal/yr — High-Volume Permit threshold",
      cex = 0.68, col = PAL$peer)
+abline(h = REQUEST_MGAL, lty = 2, col = PAL$fwpc, lwd = 2.2)
+# left-aligned inside the panel: pos=3 on bp[1] centres the string and runs it
+# off the left edge, and stacking it on bp[2] collides with that bar's value label
+text(par("usr")[1] + 0.03 * diff(par("usr")[1:2]), REQUEST_MGAL * 1.20,
+     "138 Mgal/yr requested",
+     adj = 0, cex = 0.7, font = 2, col = PAL$fwpc)
 mtext("Trinity thickness at the tract (UTGCD Rule 5.2: 500 gal/acre x thickness, floor 25,000, cap 250,000)",
       side = 1, line = 3.4, cex = 0.68, col = PAL$muted)
+mtext(sprintf("The request needs about %.0f ft of saturated Trinity across the assembly. Below that, the tract cannot lawfully produce it.",
+              REQUEST_THICK_FT),
+      side = 1, line = 4.4, cex = 0.68, font = 3, col = PAL$fwpc)
 
 # RIGHT — total system demand: cooling PLUS the water behind the power
 par(mar = c(4.2, 5.2, 2.6, 1))
@@ -366,10 +383,15 @@ for (i in seq_len(nrow(cfg))) {
   text(i, par("usr")[3] - ymax * 0.06, cfg$lab[i], xpd = NA, cex = 0.68, col = PAL$muted)
 }
 abline(h = 25, lty = 3, col = PAL$peer, lwd = 1.6)
+abline(h = REQUEST_MGAL, lty = 2, col = PAL$fwpc, lwd = 2.2)
 legend("topright", bty = "n", cex = 0.74,
-       fill = c(adjustcolor(PAL$water, 0.85), adjustcolor(PAL$power, 0.85)),
+       fill   = c(adjustcolor(PAL$water, 0.85), adjustcolor(PAL$power, 0.85), NA),
+       border = c("white", "white", NA),
+       lty    = c(NA, NA, 2), lwd = c(NA, NA, 2.2),
+       col    = c(NA, NA, PAL$fwpc),
        legend = c("Direct — makeup water at the data hall",
-                  "Indirect — water consumed making its electricity"))
+                  "Indirect — water consumed making its electricity",
+                  "138 Mgal/yr — what the company asked the district for"))
 mtext(paste("Cooling choice + how the power is made. \"dry/wet NOx\" = the on-site turbines' NOx control;",
             "\"grid / CC\" = grid supply or an on-site combined cycle."),
       side = 1, line = 3.2, cex = 0.66, col = PAL$muted)
@@ -387,6 +409,10 @@ mtext(paste("cross-checked against Macknick et al., NREL/TP-6A20-50900). PUE 1.1
 mtext(paste("If the power is made on this tract, both bars draw on the same aquifer and count against the same allocation.",
             "The 5-acre minimum-tract rule adopted 2026-08-27 governs the district's WESTERN thin-aquifer edge, not this tract."),
       outer = TRUE, side = 1, line = 4.4, cex = 0.7, font = 3, col = PAL$muted)
+mtext("Dashed purple: the 138 Mgal/yr Black Mountain notified the district it intends to request, Sept 2026 — a notice of intent, not a filed application.",
+      outer = TRUE, side = 1, line = 5.5, cex = 0.7, col = PAL$fwpc)
+mtext("Read as cooling water it implies 32-158 MW evaporative, or 790 MW-3.2 GW closed-loop; at 75 MW it implies 0.21 gal/kWh, an evaporative figure.",
+      outer = TRUE, side = 1, line = 6.5, cex = 0.7, col = PAL$fwpc)
 dev.off()
 cat("Wrote water_ceiling_C.png\n")
 
