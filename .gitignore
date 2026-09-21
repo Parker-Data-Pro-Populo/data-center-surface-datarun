@@ -33,4 +33,4 @@ ehthumbs.db
 # The R output CSVs are derived data — kept tracked for reproducibility.
 
 # Pre-publication review renders — never commit these to the public repo.
-*_REVIEW.pdf
+*_REVIEW*.pdf
