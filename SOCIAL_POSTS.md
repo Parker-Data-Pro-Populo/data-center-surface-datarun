@@ -1,7 +1,7 @@
 # Social-post starter text
 
 *Drafts. Edit before posting. The URLs assume the canonical github.io address;
-if you've set up a mirror at texascrossroads.net or henrylee.vote, swap the URL.*
+the canonical URL is the Pro Populo site; use it everywhere.*
 
 ---
 
@@ -80,9 +80,9 @@ if you've set up a mirror at texascrossroads.net or henrylee.vote, swap the URL.
 >
 > I'm presenting this at the Parker County Commissioners Court on June 8.
 >
-> I'm not pitching this as a story — I'm sending it in case it's useful background, or in case you'd like to verify any specific claim. If you have questions or want to confirm a citation, I'm reachable at henry.lee@henrylee.vote.
+> I'm not pitching this as a story — I'm sending it in case it's useful background, or in case you'd like to verify any specific claim. If you have questions or want to confirm a citation, I'm reachable at clbutler@mac.com.
 >
-> Henry Lee Butler
+> Charles Henry Lee Butler
 
 
 **To another county's organizing network**
@@ -99,7 +99,7 @@ if you've set up a mirror at texascrossroads.net or henrylee.vote, swap the URL.
 >
 > If your group has done any related work or knows people working this issue in your county, I'd appreciate a connection. Coordinated pushback across the network strengthens every individual county's position.
 >
-> Henry Lee Butler · henry.lee@henrylee.vote
+> Charles Henry Lee Butler · clbutler@mac.com
 
 
 ---
@@ -119,7 +119,7 @@ if you've set up a mirror at texascrossroads.net or henrylee.vote, swap the URL.
 >
 > This is not anti-data-center. It's about whether decisions of this scale get made in public view. I'd encourage anyone interested to come to the June 9 commissioners court session and speak.
 >
-> Questions, corrections, or additions: henry.lee@henrylee.vote
+> Questions, corrections, or additions: clbutler@mac.com
 
 
 ---

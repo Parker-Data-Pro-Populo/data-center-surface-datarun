@@ -30,7 +30,7 @@ SHP     <- file.path(GEO_DIR, "cb_2023_us_county_20m.shp")
 stopifnot(file.exists(SHP))
 
 # VOICE. The neutral build is the default and is what both published surfaces use.
-# RCO_VOICE=campaign restores the organizing annotation for henrylee.vote only.
+# RCO_VOICE=campaign restores the organizing annotation for the campaign surface only.
 VOICE <- Sys.getenv("RCO_VOICE", unset = "neutral")
 stopifnot(VOICE %in% c("neutral", "campaign"))
 SUBTITLE <- if (VOICE == "campaign")

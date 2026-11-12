@@ -17,7 +17,7 @@ All R scripts (*.R), shell scripts (*.sh), and HTML/CSS/JavaScript
 implementation files authored as part of this project are released under
 the MIT License.
 
-Copyright (c) 2026 Henry Lee Butler
+Copyright (c) 2026 Charles Henry Lee Butler
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -110,4 +110,4 @@ assumptions stated in the published source code. Errors, where
 identified, will be corrected with a dated revision note.
 
 For questions, corrections, or licensing clarifications:
-henry.lee@henrylee.vote
+clbutler@mac.com

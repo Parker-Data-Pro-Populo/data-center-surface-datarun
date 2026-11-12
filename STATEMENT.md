@@ -91,23 +91,26 @@ The record so far, all of it public:
   regenerated, and the cause written into the source file.
 
 If a figure here is wrong, the correction is wanted more than the appearance of having been right.
-Corrections and challenges: henry.lee@henrylee.vote.
+Corrections and challenges: clbutler@mac.com.
 
 ## Disclosures
 
 ### Who produces this
 
-This research is produced by **Henry Lee Butler**, working independently. There is no commercial
+This research is produced by **Charles Henry Lee Butler**, working independently. There is no commercial
 affiliation, no client, no sponsor, and no funding from any party with an interest in the outcome —
 no developer, no landowner, no utility, no trade association, and no opposing group.
 
 **Political activity.** The author is a candidate for **Parker County Commissioner, Precinct 2**,
-running as a Democrat, and publishes campaign material at henrylee.vote. That is stated here rather
+running as a Democrat, and publishes campaign material separately from this publication. No campaign material
+is published here, and this site does not link to any. That is stated here rather
 than left to be discovered, because a reader is entitled to know it before deciding how much weight
 to give anything on this page.
 
 What follows from it, concretely. The campaign version of this briefing argues a case; this version
-does not, and the two are kept on separate domains for exactly that reason. Both are built from the
+does not, and the two are kept as separate documents for exactly that reason. The briefing this site
+presents is the reporting version; the campaign version sits beside it in the repository, published not as
+an alternative front door but so that the two can be compared. Both are built from the
 same repository, the same data and the same code. **Neither is permitted to carry a figure the other
 does not** — where they differ, they differ in voice, never in a number, a date, a citation or a
 source line. Both versions are in the public repository, so that commitment can be checked by anyone
@@ -164,4 +167,4 @@ documents.
 
 This statement may be cited, quoted or republished freely with attribution. The source code, data
 and methodology are at github.com/Parker-Data-Pro-Populo/data-center-surface-datarun.
-Corrections and questions: henry.lee@henrylee.vote.
+Corrections and questions: clbutler@mac.com.

@@ -93,8 +93,14 @@ note remains. Nothing to rename.
 
 ## The fork
 
-Most of this memo is, in effect, a specification for the **texascrossroads.net** reporting voice. Applied
-wholesale to **henrylee.vote** it would neuter a campaign document that is entitled to argue.
+Most of this memo is, in effect, a specification for the reporting voice. Applied wholesale to a campaign
+document, which is entitled to argue, it would neuter it.
+
+> **Note added November 12, 2026.** This section originally named the two mirror domains as the destinations for
+> the two voices. The site has since been de-linked from both: the Pro Populo site is now the only published
+> surface, it carries no campaign material and links to none, and the two voices are built as
+> `slides/index.html` and `slides/campaign.html` within it. The reasoning above is unchanged; only the
+> addresses are.
 
 `profile_2026_09/variants/` holds the campaign-voice originals of every passage replaced here, so the
 split is a build step rather than a rewrite. Chart G already builds both ways from one script. The

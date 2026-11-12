@@ -1,6 +1,6 @@
 # A statement of position
 
-*Henry Lee Butler · June 2, 2026*
+*Charles Henry Lee Butler · June 2, 2026*
 
 ## What this project is — and is not
 
@@ -152,4 +152,4 @@ challenging its findings to meet in return.
 *This statement may be cited, quoted, or republished freely with attribution.
 The source code, data, and methodology supporting the project are at
 **[github.com/Parker-Data-Pro-Populo/data-center-surface-datarun](https://github.com/Parker-Data-Pro-Populo/data-center-surface-datarun)**.
-Corrections and questions: henry.lee@henrylee.vote.*
+Corrections and questions: clbutler@mac.com.*

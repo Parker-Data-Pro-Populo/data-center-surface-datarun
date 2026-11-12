@@ -95,8 +95,8 @@ If a cease-and-desist letter, demand letter, or correction request arrives from 
 >
 > Sincerely,
 >
-> Henry Lee Butler
-> henry.lee@henrylee.vote
+> Charles Henry Lee Butler
+> clbutler@mac.com
 
 ---
 
